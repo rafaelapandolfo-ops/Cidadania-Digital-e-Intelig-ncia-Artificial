@@ -1,142 +1,169 @@
-// Sistema Avançado de Análise de Padrões de Desinformação
-function analyzeNews() {
-    const input = document.getElementById('checker-input').value.trim();
-    const resultDiv = document.getElementById('analysis-result');
-    const resultText = document.getElementById('analysis-text');
+// SIMULADOR 1: VARREDURA FACIAL DE DEEPFAKE
+function iniciarMapeamento() {
+    const containerVideo = document.querySelector('.container-video-ia');
+    const porcentagemTexto = document.getElementById('porcentagem-ia');
     
-    if (input === "") {
-        alert("Por favor, digite um texto ou cole um link suspeito para realizar a varredura.");
+    containerVideo.classList.add('rostate-animada');
+    let progresso = 0;
+    
+    const intervalo = setInterval(() => {
+        progresso += 5;
+        porcentagemTexto.innerText = progresso + "%";
+        
+        if (progresso >= 100) {
+            clearInterval(intervalo);
+            porcentagemTexto.innerText = "100% (MAPEAMENTO CONCLUÍDO)";
+            alert("🔒 Alerta Técnico: Malha labial convertida. Este tipo de vetorização permite que golpistas troquem o rosto de qualquer pessoa em vídeos.");
+            containerVideo.classList.remove('rostate-animada');
+        }
+    }, 150);
+}
+
+// SIMULADOR 2: CLONAGEM DE VOZ VIA SÍNTESE DE ÁUDIO REAL DO NAVEGADOR
+function tocarAudioSimulado() {
+    const ondaSom = document.getElementById('onda-som');
+    ondaSom.classList.add('onda-animada');
+
+    // Cria um sintetizador eletrônico nativo do navegador
+    const sintetizador = window.speechSynthesis;
+    const mensagem = new SpeechSynthesisUtterance("Alerta do sistema. Esta é uma simulação de voz computadorizada artificial baseada em amostras coletadas na internet. Cuidado com o que você ouve.");
+    mensagem.lang = 'pt-BR';
+    mensagem.rate = 1.1;
+
+    mensagem.onend = function() {
+        ondaSom.classList.remove('onda-animada');
+    };
+
+    sintetizador.speak(mensagem);
+}
+
+// AUDITORIA CRÍTICA DE MÍDIA
+function processarAuditoriaMidia() {
+    const busca = document.getElementById('input-noticia').value.trim();
+    const painel = document.getElementById('resultado-verificacao');
+    const resultadoTexto = document.getElementById('texto-resultado');
+
+    if (busca === "") {
+        alert("Por favor, digite alguma frase ou tema para prosseguir com a triagem.");
         return;
     }
 
-    resultDiv.style.display = "block";
-    resultText.innerHTML = `
-        <div class="analysis-step">
-            <strong>🚨 1. Verificação de Viés e Carga Emocional:</strong><br>
-            Frases bombásticas, uso excessivo de termos como "URGENTE", "CUIDADO" ou que geram pânico/revolta imediata são técnicas projetadas para desativar seu pensamento racional e forçar o compartilhamento.
-        </div>
-        <div class="analysis-step">
-            <strong>🔍 2. Auditoria de Fontes e Cruzamento de Dados:</strong><br>
-            Grandes portais, veículos oficiais de comunicação ou conselhos institucionais replicaram este exato fato? Se a história existe apenas em correntes de aplicativos ou perfis anônimos, a probabilidade de fraude é de quase 100%.
-        </div>
-        <div class="analysis-step">
-            <strong>🤖 3. Rastreamento de Anomalias de IA (Mídias Sintéticas):</strong><br>
-            Se o conteúdo inclui fotos ou vídeos, procure por iluminação inconsistente, dentes fundidos, falhas na textura do fundo ou vozes sem variações naturais de respiração. A tecnologia evolui, mas deixa rastros técnicos matemáticos.
-        </div>
-        <div class="analysis-step">
-            <strong>🛡️ 4. Protocolo do Cidadão Digital:</strong><br>
-            Rompa o ciclo de contaminação. Na dúvida, não curta, não comente e jamais encaminhe o arquivo. O silêncio estratégico destrói a desinformação.
-        </div>
-    `;
+    painel.style.display = "block";
+    resultadoTexto.innerHTML = "• <strong>Análise de Gatilho de Pânico:</strong> O texto digitado possui características comuns de engenharia social voltadas a causar urgência.<br><br>" +
+        "• <strong>Contraprova de Segurança:</strong> Copie os nomes centrais e verifique se o evento consta em portais de notícias tradicionais e agências reguladoras.<br><br>" +
+        "• <strong>Rastro de Manipulação IA:</strong> Caso haja áudio anexo, ouça com fones de ouvido procurando por cliques de corte mecânico ou robóticos nas consoantes.";
 }
 
-// Banco de Dados Expandido do Quiz (Contém 5 Cenários Completos e Informativos)
-const quizData = [
+// BANCO DE DADOS E LÓGICA DO QUIZ
+const dadosDoQuiz = [
     {
-        question: "Cenário 1: Você assiste a um pronunciamento urgente em vídeo de um governante relevante, mas nota um leve atraso do áudio em relação ao movimento da boca e transições bruscas de cena. Qual o procedimento correto?",
-        answers: [
-            { text: "A) Compartilhar o link o mais rápido possível para alertar amigos e familiares antes que saia do ar.", correct: false, feedback: "❌ Errado! O repasse precipitado favorece o espalhamento de conteúdos potencialmente adulterados e gera pânico desnecessário." },
-            { text: "B) Cruzar o conteúdo do anúncio com canais de imprensa oficiais e agências de checagem antes de interagir.", correct: true, feedback: "✅ Correto! Falhas de sincronia labial, piscar de olhos ausente e pequenas oscilações de textura indicam renderização falha de Deepfake." },
-            { text: "C) Deixar um comentário reativo na postagem para expor sua indignação com o fato.", correct: false, feedback: "❌ Errado! Interações e comentários em textos falsos aumentam o alcance orgânico da publicação nos algoritmos das redes sociais." }
+        pergunta: "Caso 1: Você recebe um vídeo de uma autoridade declarando uma medida absurda. O movimento dos dentes está borrado e a fala não tem pausas para respiração natural. O que fazer?",
+        opcoes: [
+            { texto: "A) Compartilhar urgentemente para alertar conhecidos.", correta: false, feedback: "❌ Errado! Repassar materiais suspeitos propaga pânico social e boatos." },
+            { texto: "B) Buscar a confirmação da notícia em portais institucionais oficiais.", correta: true, feedback: "✅ Correto! Voz robótica, dentes fundidos e ausência de respiração natural entregam Deepfakes." },
+            { texto: "C) Deixar um comentário de ataque na postagem original.", correta: false, feedback: "❌ Errado! Comentários ajudam o algoritmo a distribuir posts falsos para mais pessoas." }
         ]
     },
     {
-        question: "Cenário 2: Ao checar uma imagem de protesto político altamente compartilhada na internet, qual destes indícios técnicos aponta diretamente que ela foi criada sinteticamente por uma IA?",
-        answers: [
-            { text: "A) A imagem exibir frases escritas em bom português com excelente resolução.", correct: false, feedback: "❌ Incorreto. Os motores textuais modernos integrados às IAs avançaram muito e raramente falham na ortografia básica." },
-            { text: "B) Detalhes de dentes fundidos, brincos ou óculos assimétricos, e contornos de mãos borrados ou com 6 dedos.", correct: true, feedback: "✅ Excelente! Algoritmos de imagem geram detalhes finos por aproximação visual probabilística, falhando frequentemente na simetria anatômica e física." },
-            { text: "C) A aplicação de uma marca d'água vermelha obrigatória com o logotipo da plataforma criadora.", correct: false, feedback: "❌ Incorreto. Versões customizadas de código aberto permitem criar arquivos sem nenhuma assinatura visual ou metadados de identificação." }
-        ]
-    },
-    {
-        question: "Cenário 3: Um áudio idêntico ao tom de voz de um familiar solicita uma transferência Pix imediata por mensagem privada, alegando um imprevisto médico de urgência. Qual a melhor linha de defesa?",
-        answers: [
-            { text: "A) Concluir a transação financeira de imediato devido à similaridade perfeita do timbre vocal.", correct: false, feedback: "⚠️ Perigo! Arquivos curtos de apenas 3 segundos extraídos de vídeos públicos em redes sociais bastam para clonar timbres de voz por inteligência artificial." },
-            { text: "B) Encerrar o contato atual e realizar uma chamada direta para o número de telefone guardado na sua agenda telefônica oficial.", correct: true, feedback: "✅ Perfeito! Romper a ponte de comunicação suspeita e validar o fato por um canal alternativo e previamente seguro neutraliza a clonagem de áudio." },
-            { text: "C) Bloquear o remetente sem realizar nenhuma verificação de segurança complementar ou aviso.", correct: false, feedback: "❌ Incompleto. Negligenciar sem validar pode deixar um parente desamparado em um cenário de perigo real. Faça a contraprova de forma segura." }
-        ]
-    },
-    {
-        question: "Cenário 4: Você lê um artigo que afirma que um novo remédio milagroso cura uma doença grave instantaneamente. O texto cita 'estudos internacionais', mas não traz links nem nomes de cientistas. O que fazer?",
-        answers: [
-            { text: "A) Consumir a informação como verdade, já que cita pesquisas internacionais.", correct: false, feedback: "❌ Errado. A ausência de fontes nomeadas ou links diretos para revistas científicas renomadas é o sintoma clássico de desinformação em saúde." },
-            { text: "B) Pesquisar o nome do remédio no site oficial da ANVISA ou da Organização Mundial da Saúde.", correct: true, feedback: "✅ Perfeito! A cidadania digital exige que informações que afetam o bem-estar físico sejam validadas em bases de dados regulatórias oficiais." },
-            { text: "C) Comprar o produto e repassar o texto nos grupos para ajudar outras pessoas enfermas.", correct: false, feedback: "❌ Perigoso! Compartilhar tratamentos falsos pode colocar vidas humanas em risco e configura um desserviço social grave." }
-        ]
-    },
-    {
-        question: "Cenário 5: O que define o conceito moderno de 'Cidadania Digital' diante do avanço desenfreado dos algoritmos e inteligências artificiais?",
-        answers: [
-            { text: "A) Utilizar a internet apenas para entretenimento, ignorando as discussões de segurança e privacidade.", correct: false, feedback: "❌ Incorreto. Isolar-se dos debates técnicos torna o usuário um alvo vulnerável para golpes financeiros e manipulação ideológica." },
-            { text: "B) Compreender seus direitos e deveres na rede, consumindo conteúdo criticamente, protegendo dados e barrando notícias falsas.", correct: true, feedback: "✅ Perfeito! Ser um cidadão digital significa ter autonomia, agir com ética nas interações e atuar como um filtro saudável contra a poluição de dados." },
-            { text: "C) Aceitar todos os termos de privacidade sem ler e compartilhar conteúdos que confirmam suas opiniões pessoais.", correct: false, feedback: "❌ Incorreto. O viés de confirmação (compartilhar algo só porque você quer que seja verdade) é o maior combustível da desinformação estruturada." }
+        pergunta: "Caso 2: Uma foto exibe um protesto de rua. Ao aproximar o zoom, você percebe que algumas pessoas ao fundo têm mãos com 6 dedos e óculos colados na pele. Qual o diagnóstico?",
+        opcoes: [
+            { texto: "A) É apenas um defeito físico natural na lente da câmera do fotógrafo.", correta: false, feedback: "❌ Incorreto. Falhas ópticas borram a imagem, mas não inventam anatomias novas." },
+            { text: "B) Trata-se de uma mídia inteiramente sintética criada por Inteligência Artificial.", correta: true, feedback: "✅ Excepcional! Geradores de imagem erram severamente na simetria de dedos, brincos e óculos." },
+            { texto: "C) É uma foto verdadeira que passou por ajustes básicos de cor e contraste.", correta: false, feedback: "❌ Errado. Mudanças de luz não criam membros humanos extras." }
         ]
     }
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
+let indiceAtual = 0;
+let acertos = 0;
 
-const questionElement = document.getElementById('question-text');
-const optionsContainer = document.getElementById('options-container');
-const feedbackElement = document.getElementById('quiz-feedback');
-const nextButton = document.getElementById('next-btn');
-const quizBox = document.getElementById('quiz-box');
-const resultBox = document.getElementById('result-box');
-const scoreText = document.getElementById('score-text');
-const profileText = document.getElementById('profile-text');
+const campoPergunta = document.getElementById('campo-pergunta');
+const caixaOpcoes = document.getElementById('caixa-opcoes');
+const alertaFeedback = document.getElementById('alerta-feedback');
+const btnProxima = document.getElementById('btn-proxima');
+const blocoQuiz = document.getElementById('bloco-quiz');
+const blocoResultadoFinal = document.getElementById('bloco-resultado-final');
+const textoPlacar = document.getElementById('texto-placar');
+const textoPerfil = document.getElementById('texto-perfil');
 
-// Barra de Progresso Dinâmica
-window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    const bar = document.getElementById('progress-bar');
-    if(bar) bar.style.width = scrolled + '%';
-});
-
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    quizBox.style.display = "block";
-    resultBox.style.display = "none";
-    nextButton.style.display = "none";
-    showQuestion();
+function iniciarQuiz() {
+    indiceAtual = 0;
+    acertos = 0;
+    blocoQuiz.style.display = "block";
+    blocoResultadoFinal.style.display = "none";
+    btnProxima.style.display = "none";
+    mostrarQuestao();
 }
 
-function showQuestion() {
-    resetState();
-    let currentQuestion = quizData[currentQuestionIndex];
-    questionElement.innerText = currentQuestion.question;
+function mostrarQuestao() {
+    alertaFeedback.style.display = "none";
+    btnProxima.style.display = "none";
+    caixaOpcoes.innerHTML = "";
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer.text;
-        button.classList.add('options-btn');
-        button.addEventListener('click', () => selectAnswer(answer, button));
-        optionsContainer.appendChild(button);
+    let questao = dadosDoQuiz[indiceAtual];
+    campoPergunta.innerText = questao.pergunta;
+
+    questao.opcoes.forEach(opcao => {
+        const btn = document.createElement('button');
+        btn.innerText = opcao.texto;
+        btn.classList.add('botao-opcao');
+        btn.addEventListener('click', () => checarResposta(opcao, btn));
+        caixaOpcoes.appendChild(btn);
     });
 }
 
-function resetState() {
-    feedbackElement.style.display = "none";
-    nextButton.style.display = "none";
-    while (optionsContainer.firstChild) {
-        optionsContainer.removeChild(optionsContainer.firstChild);
+function checarResposta(opcao, btnClicado) {
+    const botoes = caixaOpcoes.querySelectorAll('.botao-opcao');
+    botoes.forEach(b => b.disabled = true);
+
+    alertaFeedback.innerText = opcao.feedback;
+    alertaFeedback.style.display = "block";
+
+    if (opcao.correta) {
+        btnClicado.style.backgroundColor = "#059669";
+        alertaFeedback.style.backgroundColor = "rgba(5, 150, 105, 0.2)";
+        alertaFeedback.style.color = "#00D2FF";
+        acertos++;
+    } else {
+        btnClicado.style.backgroundColor = "#DC2626";
+        alertaFeedback.style.backgroundColor = "rgba(220, 38, 38, 0.2)";
+        alertaFeedback.style.color = "#EF4444";
+    }
+    btnProxima.style.display = "inline-block";
+}
+
+function passarParaProximaPergunta() {
+    indiceAtual++;
+    if (indiceAtual < dadosDoQuiz.length) {
+        mostrarQuestao();
+    } else {
+        finalizarQuiz();
     }
 }
 
-function selectAnswer(answer, selectedBtn) {
-    const buttons = optionsContainer.querySelectorAll('.options-btn');
-    buttons.forEach(btn => btn.disabled = true);
+function finalizarQuiz() {
+    blocoQuiz.style.display = "none";
+    blocoResultadoFinal.style.display = "block";
+    textoPlacar.innerText = `Resultado da Análise: ${acertos} de ${dadosDoQuiz.length} acertos.`;
 
-    feedbackElement.innerText = answer.feedback;
-    feedbackElement.style.display = "block";
-
-    if (answer.correct) {
-        selectedBtn.style.background = "#059669";
-        selectedBtn.style.borderColor = "#10B981";
-        feedbackElement.style.color = "#00D2FF";
-        score++;
+    if (acertos === dadosDoQuiz.length) {
+        textoPerfil.innerText = "🕵️ Nível: Detetive Lendário! Suas defesas analíticas estão afiadas. Você sabe exatamente como auditar mídias sintéticas.";
     } else {
-        selectedBtn.style.background = "#DC2626";
+        textoPerfil.innerText = "⚠️ Nível: Alvo Fácil. Você confia muito no que assiste na internet. Lembre-se de sempre checar fontes institucionais.";
+    }
+}
+
+function reiniciarSimuladorQuiz() {
+    iniciarQuiz();
+}
+
+window.addEventListener('DOMContentLoaded', iniciarQuiz);
+btnProxima.addEventListener('click', passarParaProximaPergunta);
+
+// BARRA DE PROGRESSO DE ROLAGEM
+window.addEventListener('scroll', () => {
+    const topo = document.documentElement.scrollTop || document.body.scrollTop;
+    const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPorcentagem = (topo / total) * 100;
+    document.getElementById('barra-progresso').style.width = scrollPorcentagem + '%';
+});
