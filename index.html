@@ -3,314 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Cidadania Digital e IA</title>
-    <style>
-        /* RESET E CONFIGURAÇÕES GLOBAIS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #060913;
-            color: #FFFFFF;
-            overflow-x: hidden;
-            padding-top: 80px;
-        }
-
-        /* BARRA DE PROGRESSO DE LEITURA */
-        #barra-progresso {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #00D2FF, #7000FF);
-            width: 0%;
-            z-index: 2000;
-            transition: width 0.1s ease;
-        }
-
-        /* MENU SUPERIOR */
-        .menu-navegacao {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(6, 9, 19, 0.96);
-            border-bottom: 1px solid #1E293B;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: #00D2FF;
-            letter-spacing: 1px;
-        }
-
-        .links-menu a {
-            color: #94A3B8;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .links-menu a:hover {
-            color: #00D2FF;
-        }
-
-        /* HERO - INTRODUÇÃO */
-        header {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: radial-gradient(circle at center, #1E1B4B 0%, #060913 80%);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #00D2FF, #7000FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #94A3B8;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        /* CONTEÚDO PRINCIPAL */
-        .conteudo-principal {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        section {
-            background-color: #0F172A;
-            border: 1px solid #1E293B;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: #00D2FF;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #1E293B;
-            padding-bottom: 10px;
-        }
-
-        p.texto-informativo {
-            color: #CBD5E1;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* SIMULADORES E INTERATIVIDADE */
-        .bloco-simulador {
-            background: #060913;
-            border: 2px dashed #334155;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        /* Onda Sonora com Animação ativa por padrão */
-        .onda-sonora {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            height: 50px;
-            margin: 20px 0;
-        }
-
-        .barra-som {
-            width: 6px;
-            height: 15px;
-            background: #7000FF;
-            border-radius: 3px;
-            animation: moverSom 0.6s infinite alternate ease-in-out;
-        }
-
-        .barra-som:nth-child(2n) { background: #00D2FF; animation-delay: 0.15s; }
-        .barra-som:nth-child(3n) { animation-delay: 0.3s; }
-        .barra-som:nth-child(4n) { animation-delay: 0.45s; }
-
-        @keyframes moverSom {
-            0% { height: 10px; }
-            100% { height: 45px; }
-        }
-
-        /* FORMULÁRIO DO VERIFICADOR */
-        .campo-busca {
-            width: 100%;
-            padding: 15px;
-            background-color: #060913;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            color: #FFFFFF;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            outline: none;
-        }
-
-        .campo-busca:focus {
-            border-color: #00D2FF;
-        }
-
-        .painel-resultado {
-            display: none;
-            background-color: #1E293B;
-            border-left: 5px solid #00D2FF;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 15px;
-            text-align: left;
-        }
-
-        /* SISTEMA DO QUIZ */
-        .caixa-pergunta {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .botao-opcao {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #1E293B;
-            border: 1px solid #334155;
-            color: #FFFFFF;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: left;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            transition: background-color 0.2s;
-        }
-
-        .botao-opcao:hover {
-            background-color: #334155;
-        }
-
-        .caixa-alerta-feedback {
-            display: none;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            font-weight: 600;
-            line-height: 1.6;
-        }
-
-        /* BOTÕES GLOBAIS DE AÇÃO */
-        .botao-acao {
-            display: inline-block;
-            background: linear-gradient(45deg, #00D2FF, #7000FF);
-            color: #FFFFFF;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .botao-acao:hover {
-            transform: scale(1.03);
-            box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .links-menu { display: none; }
-        }
-    </style>
+    <title>Portal Cidadania Digital & IA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="barra-progresso"></div>
 
-    <!-- MENU -->
+    <!-- MENU DE NAVEGAÇÃO -->
     <nav class="menu-navegacao">
         <div class="logo">🛡️ SCANNER DIGITAL</div>
         <div class="links-menu">
-            <a href="#laboratorio">Laboratório</a>
+            <a href="#inicio">Início</a>
+            <a href="#laboratorio">Laboratório IA</a>
+            <a href="#informacoes">Guia de Impacto</a>
             <a href="#auditoria">Analisador</a>
-            <a href="#secao-quiz">Quiz Interativo</a>
+            <a href="#secao-quiz">Quiz da Verdade</a>
         </div>
     </nav>
 
-    <!-- INTRODUÇÃO -->
-    <header>
+    <!-- HERO / HOME -->
+    <header id="inicio">
         <h1>Cidadania Digital & Inteligência Artificial</h1>
-        <p>O impacto das Deepfakes e da desinformação na sociedade moderna. Aprenda a blindar sua mente contra fraudes algorítmicas.</p>
-        <a href="#secao-quiz" class="botao-acao">Ir Direto ao Quiz</a>
+        <p>O impacto das Deepfakes e da desinformação na sociedade moderna. Aprenda a blindar sua mente contra fraudes algorítmicas com testes práticos.</p>
+        <a href="#laboratorio" class="botao-acao">Entrar no Laboratório</a>
     </header>
 
     <div class="conteudo-principal">
 
-        <!-- LABORATÓRIO -->
+        <!-- LABORATÓRIO VISUAL E AUDITIVO INTERATIVO -->
         <section id="laboratorio">
-            <h2>👁️ Laboratório de Engenharia Sintética</h2>
-            <p class="texto-informativo">A Inteligência Artificial generativa tornou a falsificação de dados barata e em massa. Veja abaixo as representações de fraudes em tempo real.</p>
+            <h2>👁️ Laboratório de Evidências Sintéticas</h2>
+            <p class="texto-informativo">Experimente as ferramentas abaixo para entender como algoritmos generativos conseguem forjar rostos e vozes em alta definição.</p>
             
+            <!-- Simulador de Vídeo / Reconhecimento Facial -->
             <div class="bloco-simulador">
-                <p style="font-weight: 700; margin-bottom: 10px;">Simulador 1: Clonagem de Voz Neuronal Ativa</p>
-                <div class="onda-sonora">
+                <p class="titulo-simulador">Simulador 1: Varredura de Biometria Facial para Deepfake</p>
+                <div class="container-video-ia">
+                    <div class="grade-reconhecimento"></div>
+                    <div class="linha-scanner"></div>
+                    <div class="rosto-vetorial">👤</div>
+                    <div class="status-ia">PROCESSANDO MAPEAMENTO LABIAL: <span id="porcentagem-ia">0%</span></div>
+                </div>
+                <button class="botao-acao" onclick="iniciarMapeamento()">Simular Mapeamento Facial</button>
+            </div>
+
+            <!-- Simulador de Áudio / Clonagem de Voz -->
+            <div class="bloco-simulador">
+                <p class="titulo-simulador">Simulador 2: Demonstração de Clonagem de Voz Neuronal</p>
+                <div class="onda-sonora" id="onda-som">
                     <div class="barra-som"></div><div class="barra-som"></div><div class="barra-som"></div><div class="barra-som"></div>
                     <div class="barra-som"></div><div class="barra-som"></div><div class="barra-som"></div><div class="barra-som"></div>
                 </div>
-                <p style="font-size: 0.85rem; color: #94A3B8;">A IA precisa de apenas 3 segundos da sua voz retirada de uma rede social para criar falas falsas completas.</p>
+                <p style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 15px;">Clique no botão abaixo para ouvir uma demonstração sintetizada eletronicamente imitando uma voz humana clonada.</p>
+                <button class="botao-acao" onclick="tocarAudioSimulado()">Ouvir Voz Clonada</button>
+            </div>
+        </section>
+
+        <!-- GUIA DE INFORMAÇÕES EXPANDIDO -->
+        <section id="informacoes">
+            <h2>⚠️ Impactos Profundos na Sociedade</h2>
+            <p class="texto-informativo">A desinformação potencializada por IA não é apenas um problema tecnológico, é uma ameaça à convivência social organizada.</p>
+            
+            <div class="grade-cards">
+                <div class="card-info">
+                    <h3>🗳️ Interferência Democrática</h3>
+                    <p>Deepfakes de candidatos são disparados em massa horas antes de eleições. Até que o conteúdo seja desmentido, o voto de milhares de cidadãos já foi influenciado de forma irreversível.</p>
+                </div>
+                <div class="card-info">
+                    <h3>💸 Golpes Financeiros (Voz Sintética)</h3>
+                    <p>Criminosos monitoram Stories e vídeos públicos para extrair amostras vocais. Depois, geram áudios personalizados simulando sequestros ou acidentes para extorquir familiares.</p>
+                </div>
+                <div class="card-info">
+                    <h3>📉 Destruição de Reputações</h3>
+                    <p>Pessoas comuns, especialmente mulheres, tornam-se vítimas de montagens vexatórias hiper-realistas criadas por aplicativos gratuitos, gerando danos psicológicos severos.</p>
+                </div>
+                <div class="card-info">
+                    <h3>🧠 Cidadania Ativa</h3>
+                    <p>Exercer a cidadania digital significa assumir a responsabilidade de auditar o que consome. Se uma notícia gera ódio ou euforia imediata, pare e investigue antes de repassar.</p>
+                </div>
             </div>
         </section>
 
         <!-- ANALISADOR -->
         <section id="auditoria">
             <h2>🕵️ Sistema de Auditoria Crítica</h2>
-            <p class="texto-informativo">Recebeu uma notícia suspeita, um vídeo alarmista ou um pedido de transferência de dinheiro? Insira o contexto geral abaixo para checagem imediata.</p>
+            <p class="texto-informativo">Recebeu uma notícia bombástica ou um arquivo de mídia duvidoso? Use nossa central de triagem para avaliar o nível de risco do conteúdo.</p>
             
             <div class="campo-verificador">
-                <input type="text" id="input-noticia" class="campo-busca" placeholder="Digite aqui o título ou resumo do conteúdo recebido...">
-                <button id="btn-verificar" class="botao-acao">Executar Varredura</button>
+                <input type="text" id="input-noticia" class="campo-busca" placeholder="Cole aqui o título da notícia ou a descrição do arquivo recebido...">
+                <button id="btn-verificar" class="botao-acao" onclick="processarAuditoriaMidia()">Executar Varredura</button>
             </div>
 
             <div id="resultado-verificacao" class="painel-resultado">
-                <h4 style="color: #00D2FF; margin-bottom: 10px;">📋 Checklist Antifraude Ativado:</h4>
+                <h4 style="color: #00D2FF; margin-bottom: 10px;">📋 Protocolo de Análise Ativado:</h4>
                 <p id="texto-resultado" style="color: #E2E8F0; line-height: 1.6;"></p>
             </div>
         </section>
 
         <!-- QUIZ -->
-        <section id="secao-quiz" style="border: 2px solid #7000FF;">
+        <section id="secao-quiz">
             <h2>🎮 Desafio Interativo: Real vs Artificial</h2>
             <p class="texto-informativo" style="color: #94A3B8;">Responda às situações práticas abaixo para descobrir seu nível de blindagem intelectual.</p>
 
             <div id="bloco-quiz">
                 <p class="caixa-pergunta" id="campo-pergunta">Carregando dados da simulação...</p>
+                <div id="caixa-opcoes"></div>
+                <div id="alerta-feedback" class="caixa-alerta-feedback"></div>
+                <button id="btn-proxima" class="botao-acao" style="display: none; margin-top: 20px;">Avançar para o Próximo Caso</button>
+            </div>
+
+            <div id="bloco-resultado-final" style="display: none; text-align: center;">
+                <h3 style="color: #00D2FF; font-size: 1.6rem;">Diagnóstico Final Concluído</h3>
+                <p id="texto-placar" style="font-size: 1.4rem; margin: 20px 0; font-weight: bold;"></p>
+                <p id="texto-perfil" style="color: #94A3B8; margin-bottom: 25px; line-height: 1.6;"></p>
+                <button id="btn-reiniciar" class="botao-acao" onclick="reiniciarSimuladorQuiz()">Reiniciar Desafio</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
