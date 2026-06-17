@@ -109,7 +109,7 @@ h2 {
     gap: 10px;
 }
 
-/* Lista de Conteúdo */
+/* Lista de Conteúdo Expandida */
 .card-list {
     list-style: none;
     margin-top: 25px;
@@ -117,7 +117,7 @@ h2 {
 
 .card-list li {
     background: #1F293D;
-    padding: 20px;
+    padding: 22px;
     margin-bottom: 15px;
     border-left: 4px solid #7000FF;
     border-radius: 4px;
@@ -125,17 +125,17 @@ h2 {
 
 .card-list h3 {
     margin-bottom: 8px;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #FFFFFF;
 }
 
 .card-list p {
     color: #A0AEC0;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* Verificador Interativo */
+/* Verificador Interativo de Sinais */
 .checker-box {
     display: flex;
     flex-direction: column;
@@ -160,23 +160,36 @@ h2 {
 
 .analysis-result {
     background: #1F293D;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     border-left: 4px solid #00D2FF;
     display: none;
 }
 
-/* Quiz */
+.analysis-step {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #2D3748;
+}
+
+.analysis-step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Quiz Interativo */
 .quiz-container {
     background: #1A1F2C;
     border: 2px solid #7000FF;
 }
 
 .question {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
     font-weight: bold;
     line-height: 1.5;
+    color: #FFFFFF;
 }
 
 .options-btn {
@@ -185,13 +198,14 @@ h2 {
     background: #2D3748;
     color: white;
     border: 1px solid #4A5568;
-    padding: 14px;
+    padding: 15px;
     margin-bottom: 12px;
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
     transition: 0.2s;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .options-btn:hover {
@@ -202,10 +216,11 @@ h2 {
 .feedback {
     margin-top: 15px;
     font-weight: bold;
-    padding: 12px;
+    padding: 15px;
     border-radius: 6px;
     display: none;
     line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 /* Botões */
