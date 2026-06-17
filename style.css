@@ -13,7 +13,7 @@ body {
     padding-top: 70px;
 }
 
-/* Barra de Progresso de Leitura */
+/* Barra de Progresso Superior */
 #progress-bar {
     position: fixed;
     top: 0;
@@ -25,14 +25,14 @@ body {
     transition: width 0.1s ease;
 }
 
-/* Menu Superior */
+/* Menu de Navegação */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 70px;
-    background: rgba(11, 15, 25, 0.9);
+    background: rgba(11, 15, 25, 0.95);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -60,9 +60,9 @@ body {
     color: #00D2FF;
 }
 
-/* Cabeçalho */
+/* Banner Principal */
 header {
-    height: 75vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +72,7 @@ header {
     padding: 20px;
 }
 
-h1 {
+header h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     background: linear-gradient(45deg, #00D2FF, #7000FF);
@@ -80,7 +80,7 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-p.subtitle {
+header p.subtitle {
     font-size: 1.2rem;
     color: #A0AEC0;
     max-width: 600px;
@@ -88,13 +88,13 @@ p.subtitle {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 20px;
 }
 
 section {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     background: #161C2A;
     padding: 35px;
     border-radius: 12px;
@@ -104,6 +104,9 @@ section {
 h2 {
     color: #00D2FF;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Lista de Conteúdo */
@@ -121,7 +124,7 @@ h2 {
 }
 
 .card-list h3 {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-size: 1.1rem;
     color: #FFFFFF;
 }
@@ -129,16 +132,48 @@ h2 {
 .card-list p {
     color: #A0AEC0;
     font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-/* Área do Quiz */
+/* Verificador Interativo */
+.checker-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.checker-input {
+    width: 100%;
+    padding: 15px;
+    background: #0B0F19;
+    border: 1px solid #4A5568;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.checker-input:focus {
+    border-color: #00D2FF;
+}
+
+.analysis-result {
+    background: #1F293D;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #00D2FF;
+    display: none;
+}
+
+/* Quiz */
 .quiz-container {
     background: #1A1F2C;
     border: 2px solid #7000FF;
 }
 
 .question {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     margin-bottom: 20px;
     font-weight: bold;
     line-height: 1.5;
@@ -155,8 +190,8 @@ h2 {
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
-    transition: background 0.2s, transform 0.1s;
-    font-size: 0.95rem;
+    transition: 0.2s;
+    font-size: 1rem;
 }
 
 .options-btn:hover {
@@ -167,11 +202,13 @@ h2 {
 .feedback {
     margin-top: 15px;
     font-weight: bold;
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     display: none;
+    line-height: 1.5;
 }
 
+/* Botões */
 .cta-btn {
     display: inline-block;
     background: linear-gradient(45deg, #00D2FF, #7000FF);
@@ -184,6 +221,7 @@ h2 {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
     transition: transform 0.2s;
+    margin-top: 10px;
 }
 
 .cta-btn:hover {
@@ -191,8 +229,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    p.subtitle { font-size: 1rem; }
-    .navbar { padding: 0 20px; }
-    .nav-links { display: none; } /* Simplificação para celular */
+    header h1 { font-size: 2.2rem; }
+    .nav-links { display: none; }
 }
