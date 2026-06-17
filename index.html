@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital & IA: O Impacto das Deepfakes</title>
+    <title>Cidadania Digital & Inteligência Artificial</title>
     <style>
+        /* CSS INTEGRADO - Garante o design sem falhas de carregamento */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0B0F19;
             color: #FFFFFF;
             overflow-x: hidden;
+            padding-top: 70px;
         }
 
         /* Barra de Progresso de Leitura */
@@ -26,12 +29,47 @@
             height: 5px;
             background: linear-gradient(90deg, #00D2FF, #7000FF);
             width: 0%;
-            z-index: 1000;
+            z-index: 1001;
             transition: width 0.1s ease;
         }
 
+        /* Menu Superior */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(11, 15, 25, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 1px solid #1F293D;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #00D2FF;
+        }
+
+        .nav-links a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #00D2FF;
+        }
+
+        /* Cabeçalho */
         header {
-            height: 80vh;
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -53,18 +91,19 @@
             font-size: 1.2rem;
             color: #A0AEC0;
             max-width: 600px;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         section {
             margin-bottom: 60px;
             background: #161C2A;
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
             border: 1px solid #2D3748;
         }
@@ -74,29 +113,42 @@
             margin-bottom: 20px;
         }
 
+        /* Lista de Conteúdo */
         .card-list {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .card-list li {
             background: #1F293D;
-            padding: 15px;
-            margin-bottom: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
             border-left: 4px solid #7000FF;
             border-radius: 4px;
         }
 
-        /* Quiz Styling */
+        .card-list h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: #FFFFFF;
+        }
+
+        .card-list p {
+            color: #A0AEC0;
+            font-size: 0.95rem;
+        }
+
+        /* Área do Quiz */
         .quiz-container {
             background: #1A1F2C;
             border: 2px solid #7000FF;
         }
 
         .question {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
             font-weight: bold;
+            line-height: 1.5;
         }
 
         .options-btn {
@@ -104,22 +156,26 @@
             width: 100%;
             background: #2D3748;
             color: white;
-            border: none;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 6px;
+            border: 1px solid #4A5568;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 8px;
             cursor: pointer;
             text-align: left;
-            transition: 0.2s;
+            transition: background 0.2s, transform 0.1s;
+            font-size: 0.95rem;
         }
 
         .options-btn:hover {
             background: #4A5568;
+            transform: translateX(5px);
         }
 
         .feedback {
             margin-top: 15px;
             font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
             display: none;
         }
 
@@ -127,17 +183,25 @@
             display: inline-block;
             background: linear-gradient(45deg, #00D2FF, #7000FF);
             color: white;
-            padding: 12px 24px;
+            padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            border: none;
+            cursor: pointer;
             box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
             transition: transform 0.2s;
+            margin-top: 15px;
         }
 
         .cta-btn:hover {
             transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            p.subtitle { font-size: 1rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -145,63 +209,77 @@
 
     <div id="progress-bar"></div>
 
-    <header>
+    <nav class="navbar">
+        <div class="nav-logo">🛡️ ScannerDigital</div>
+        <div class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#guia">Impactos</a>
+            <a href="#quiz-section">Quiz</a>
+        </div>
+    </nav>
+
+    <header id="inicio">
         <h1>Cidadania Digital & IA</h1>
-        <p class="subtitle">Descubra como sobreviver à era das Deepfakes, da Desinformação e das mídias sintéticas manipuladas por Inteligência Artificial.</p>
-        <a href="#quiz" class="cta-btn">Testar Meus Olhos de Detetive</a>
+        <p class="subtitle">Descubra como sobreviver à era das Deepfakes, da Desinformação e das mídias manipuladas por Inteligência Artificial.</p>
+        <a href="#quiz-section" class="cta-btn">Iniciar o Quiz Detetive</a>
     </header>
 
     <div class="container">
         
-        <section id="conteudo">
+        <section id="guia">
             <h2>O Impacto na Sociedade</h2>
-            <p>Em um mundo inundado por dados, a IA trouxe superpoderes para a criação de conteúdo. Mas com grandes poderes vêm grandes riscos. As <strong>Deepfakes</strong> borram a linha entre o real e o inventado, afetando eleições, reputações e a confiança geral na internet.</p>
+            <p>Em um mundo inundado por dados, as ferramentas de Inteligência Artificial trouxeram velocidade, mas também riscos críticos. As <strong>Deepfakes</strong> e as mídias sintéticas afetam diretamente a confiança digital e a democracia.</p>
             
             <ul class="card-list">
-                <li><strong>Desinformação em Massa:</strong> Notícias falsas hiper-realistas criadas para enganar populações inteiras.</li>
-                <li><strong>Golpes Financeiros:</strong> Clonagem de voz de familiares pedindo dinheiro por aplicativos de mensagem.</li>
-                <li><strong>Cidadania Ativa:</strong> O papel do cidadão digital atual é duvidar antes de compartilhar.</li>
+                <li>
+                    <h3>👁️ Desinformação Visual</h3>
+                    <p>Vídeos falsos hiper-realistas criados para enganar populações inteiras e manipular o debate social.</p>
+                </li>
+                <li>
+                    <h3>📞 Clonagem de Voz</h3>
+                    <p>Golpes financeiros avançados que imitam perfeitamente o tom de voz de parentes para pedir transferências de valores.</p>
+                </li>
+                <li>
+                    <h3>🧠 Cidadania Ativa</h3>
+                    <p>A nova regra de ouro da internet: verificar as fontes e o contexto original antes de apertar o botão de compartilhamento.</p>
+                </li>
             </ul>
         </section>
 
-        <section id="quiz" class="quiz-container">
+        <section id="quiz-section" class="quiz-container">
             <h2>🎮 Quiz: Detetive Digital</h2>
+            <p style="margin-bottom: 20px; color: #A0AEC0;">Responda às perguntas reais e teste seu nível de atenção contra manipulações.</p>
+            
             <div id="quiz-box">
-                <p class="question" id="q-text">Você recebe um vídeo de uma figura pública declarando algo absurdo, mas o áudio está ligeiramente robótico. O que faz?</p>
-                <button class="options-btn" onclick="checkAnswer(false, this)">A) Compartilho imediatamente para alertar meus amigos.</button>
-                <button class="options-btn" onclick="checkAnswer(true, this)">B) Busco o mesmo anúncio em portais de notícias confiáveis antes de interagir.</button>
-                <button class="options-btn" onclick="checkAnswer(false, this)">C) Deixo um comentário agressivo no vídeo alimentando o engajamento.</button>
+                <p class="question" id="question-text">Carregando pergunta...</p>
+                <div id="options-container"></div>
                 <p class="feedback" id="quiz-feedback"></p>
+                <button id="next-btn" class="cta-btn" style="display: none;">Próxima Pergunta</button>
+            </div>
+
+            <div id="result-box" style="display: none; text-align: center;">
+                <h3>Resultado do Teste</h3>
+                <p id="score-text" style="font-size: 1.5rem; margin: 20px 0; font-weight: bold;"></p>
+                <p id="profile-text" style="color: #A0AEC0; margin-bottom: 20px; line-height: 1.6;"></p>
+                <button onclick="restartQuiz()" class="cta-btn">Refazer o Desafio</button>
             </div>
         </section>
 
     </div>
 
     <script>
-        // Barra de progresso interativa para engajamento visual
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress-bar').style.width = scrolled + '%';
-        });
-
-        // Lógica simples de resposta do Quiz
-        function checkAnswer(isCorrect, element) {
-            const feedback = document.getElementById('quiz-feedback');
-            feedback.style.display = "block";
-            
-            if(isCorrect) {
-                feedback.innerHTML = "✅ Excelente! Um bom cidadão digital sempre checa as fontes oficiais antes de repassar uma informação.";
-                feedback.style.color = "#00D2FF";
-                element.style.background = "#059669";
-            } else {
-                feedback.innerHTML = "❌ Cuidado! Tomar atitudes precipitadas ou compartilhar mídias suspeitas espalha a desinformação.";
-                feedback.style.color = "#EF4444";
-                element.style.background = "#DC2626";
-            }
-        }
-    </script>
-</body>
-</html>
-
+        // JAVASCRIPT INTEGRADO - Gerencia os dados e a interatividade de forma segura
+        const quizData = [
+            {
+                question: "Você recebe um vídeo de uma figura pública declarando algo absurdo, mas o áudio está ligeiramente atrasado em relação aos lábios. O que faz?",
+                answers: [
+                    { text: "A) Compartilho imediatamente para alertar meus amigos o quanto antes.", correct: false, feedback: "❌ Cuidado! Repassar materiais sem confirmação propaga a desinformação velozmente." },
+                    { text: "B) Procuro o mesmo assunto em portais de notícias conhecidos antes de interagir.", correct: true, feedback: "✅ Perfeito! A dessincronização labial é um sinal visível clássico de processamento defeituoso de IA." },
+                    { text: "C) Comento no post atacando a figura pública, ajudando a espalhar a publicação.", correct: false, feedback: "❌ Incorreto! O algoritmo distribui posts com alta taxa de comentários agressivos para mais pessoas." }
+                ]
+            },
+            {
+                question: "Ao checar uma foto suspeita na internet, qual destes indícios técnicos aponta que ela é produto de IA?",
+                answers: [
+                    { text: "A) A imagem exibir frases escritas em bom português.", correct: false, feedback: "❌ Incorreto. Os motores de geração textual avançaram muito e raramente falham na ortografia." },
+                    { text: "B) Dedos adicionais nas mãos, brincos de modelos diferentes ou pele lisa com aspecto de boneco.", correct: true, feedback: "✅ Exato! Os geradores de imagens operam com base em probabilidades e costumam falhar em detalhes simétricos e membros humanos." },
