@@ -1,174 +1,165 @@
-// Banco de dados dinâmico do Quiz dividido por complexidade técnica
-const quizData = {
+// Base estruturada de dados dos Quizzes Avançados
+const academicQuizSystem = {
     easy: [
         {
-            q: "O que define essencialmente o termo 'Deepfake'?",
+            q: "No escopo normativo da Cidadania Digital, qual dimensão trata diretamente dos mecanismos preventivos contra a violação de dados e crimes de identidade causados por IA?",
             options: [
-                "Qualquer imagem editada rudimentarmente no Photoshop.",
-                "Vídeos, fotos ou áudios alterados realisticamente usando algoritmos de Inteligência Artificial.",
-                "Um vírus de computador que apaga mídias sociais.",
-                "Mensagens de texto falsas enviadas via aplicativos de chat."
+                "Acesso Digital Coletivo.",
+                "Segurança Digital (Proteção de Identidade e Dados).",
+                "Comércio Eletrônico Expandido.",
+                "Etiqueta de Redes Sociais Curtas."
             ],
             correct: 1,
-            explain: "Exato! As deepfakes utilizam redes neurais profundas (Deep Learning) para sintetizar mídias altamente realistas."
-        },
-        {
-            q: "Qual a melhor postura inicial ao receber uma notícia alarmante de fonte desconhecida?",
-            options: [
-                "Compartilhar imediatamente para alertar conhecidos.",
-                "Ignorar completamente sem checar o fato.",
-                "Suspender o julgamento e checar em canais jornalísticos profissionais ou agências de checagem.",
-                "Comentar na publicação criticando o autor sem base empírica."
-            ],
-            correct: 2,
-            explain: "Perfeito. O ceticismo saudável e a verificação cruzada são pilares fundamentais da cidadania digital."
+            explain: "Correto. A Segurança Digital define os critérios éticos, jurídicos e de comportamento ativo necessários para proteger a integridade informacional dos usuários."
         }
     ],
     medium: [
         {
-            q: "Qual arquitetura de rede neural revolucionou a criação de deepfakes hiper-realistas através do embate entre um gerador e um discriminador?",
+            q: "Considerando a engenharia das Redes Adversárias Generativas (GANs), qual o objetivo principal do algoritmo do 'Gerador' durante o ciclo de treinamento?",
             options: [
-                "Redes Neurais Convolucionais (CNN)",
-                "Redes de Aprendizado Por Reforço (RL)",
-                "Redes Adversárias Generativas (GANs)",
-                "Modelos Lineares de Regressão"
-            ],
-            correct: 2,
-            explain: "Correto! As GANs colocam duas redes para competir, forçando o gerador a criar mídias cada vez mais indistinguíveis da realidade."
-        },
-        {
-            q: "Como a desinformação otimizada por IA afeta o modelo de negócios das redes sociais tradicionais?",
-            options: [
-                "Reduz o engajamento porque as pessoas cansam de mentiras.",
-                "Explora algoritmos de recomendação focados em engajamento emocional (indignação), maximizando o tempo de tela.",
-                "Força as plataformas a retirarem voluntariamente todos os anúncios lucrativos.",
-                "Não causa impacto financeiro ou estrutural mensurável."
+                "Catalogar metadados estruturais de imagens reais para servidores externos.",
+                "Sintetizar dados artificiais altamente realistas a partir de vetores de ruído para burlar a validação do Discriminador.",
+                "Criptografar arquivos de mídia para impedir acessos não autorizados.",
+                "Reduzir de forma estática o contraste RGB das bordas de arquivos JPEG."
             ],
             correct: 1,
-            explain: "Precisamente. Conteúdos polarizadores e sintéticos geram reações emocionais fortes, o que prende a atenção do usuário na plataforma."
+            explain: "Exato. O Gerador cria mídias falsas iterativamente com o objetivo direto de simular a distribuição estatística de dados reais e enganar o Discriminador."
         }
     ],
     hard: [
         {
-            q: "No contexto de forense digital, qual técnica avançada é utilizada para detectar inconsistências biológicas em deepfakes de vídeo?",
+            q: "No domínio da forense digital, qual metodologia é aplicada para identificar deepfakes de vídeo mapeando variações cromáticas na epiderme causadas por batimentos cardíacos humanos?",
             options: [
-                "Análise de metadados EXIF básicos do arquivo.",
-                "Fotometria computadorizada clássica estática.",
-                "Fotoplethysmografia de detecção de fluxo sanguíneo facial oculto (rPPG).",
-                "Varredura simples de contraste RGB de borda."
+                "Análise bidimensional estática de metadados de cabeçalho EXIF.",
+                "Filtragem bilinear clássica por interpolação de matriz espacial.",
+                "Fotoplethysmografia Remota (rPPG).",
+                "Varredura simétrica de compressão quantizada de blocos MPEG."
             ],
             correct: 2,
-            explain: "Incrível! A técnica rPPG analisa variações imperceptíveis na cor da pele causadas pelo fluxo sanguíneo, algo que geradores de IA comuns falham em replicar perfeitamente."
-        },
-        {
-            q: "Qual o principal desafio regulatório internacional sobre a contenção de desinformação gerada por IA?",
-            options: [
-                "Falta de servidores globais para armazenar dados criptografados.",
-                "Equilibrar a mitigação de danos à democracia sem violar direitos fundamentais à liberdade de expressão.",
-                "A proibição total do uso de computadores quânticos por civis.",
-                "A ausência completa de leis autorais no hemisfério ocidental."
-            ],
-            correct: 1,
-            explain: "Brilhante. O limiar entre censura prévia de discurso político legítimo e combate técnico a vetores de desinformação maliciosa é o debate jurídico mais complexo da atualidade."
+            explain: "Brilhante! A técnica rPPG detecta variações volumétricas imperceptíveis no fluxo sanguíneo do rosto. Módulos geradores tradicionais de IA criam frames estáticos e falham em replicar essa biologia."
         }
     ]
 };
 
-let currentLevel = 'easy';
-let currentQuestionIdx = 0;
-let score = 0;
+// Gerenciador de Estados (SPA)
+let activeLevel = 'easy';
+let currentQuestionIndex = 0;
+let userScore = 0;
 
-// Configuração dos ouvintes de eventos para navegação de nível
-document.getElementById('btn-easy').addEventListener('click', (e) => changeLevel('easy', e.target));
-document.getElementById('btn-medium').addEventListener('click', (e) => changeLevel('medium', e.target));
-document.getElementById('btn-hard').addEventListener('click', (e) => changeLevel('hard', e.target));
+// Navegação do Sistema de Pastas
+document.querySelectorAll('.tab-link').forEach(button => {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const targetTab = this.getAttribute('data-tab');
+        openTab(targetTab);
+    });
+});
 
-function changeLevel(level, buttonElement) {
-    currentLevel = level;
-    currentQuestionIdx = 0;
-    score = 0;
+function openTab(tabId) {
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+    });
     
-    // Atualiza classes ativas nos botões
-    document.querySelectorAll('.btn-lvl').forEach(btn => btn.classList.remove('active'));
-    buttonElement.classList.add('active');
+    const activePanel = document.getElementById(`tab-${tabId}`);
+    if (activePanel) {
+        activePanel.classList.add('active');
+    }
     
-    loadQuestion();
+    // Atualizar os seletores do menu superior caso a chamada ocorra de botões internos
+    document.querySelectorAll('.tab-link').forEach(btn => {
+        if(btn.getAttribute('data-tab') === tabId) {
+            document.querySelectorAll('.tab-link').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    });
 }
 
-function loadQuestion() {
-    const container = document.getElementById('quiz-container');
-    const data = quizData[currentLevel][currentQuestionIdx];
+// Inicialização dos Eventos dos Quizzes
+document.getElementById('sel-easy').addEventListener('click', (e) => switchQuizModule('easy', e.target));
+document.getElementById('sel-medium').addEventListener('click', (e) => switchQuizModule('medium', e.target));
+document.getElementById('sel-hard').addEventListener('click', (e) => switchQuizModule('hard', e.target));
 
-    // Verifica se as perguntas do nível atual terminaram
-    if (!data) {
-        container.innerHTML = `
-            <div class="score-board">
-                <div class="score-num">${score} / ${quizData[currentLevel].length}</div>
-                <h3>Nível Concluído com Sucesso!</h3>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Seu desempenho reflete um alto nível de criticidade informacional.</p>
+function switchQuizModule(level, element) {
+    activeLevel = level;
+    currentQuestionIndex = 0;
+    userScore = 0;
+    
+    document.querySelectorAll('.lvl-selector').forEach(sel => sel.classList.remove('active'));
+    element.classList.add('active');
+    
+    buildQuestionUI();
+}
+
+function buildQuestionUI() {
+    const renderRoot = document.getElementById('quiz-dynamic-root');
+    const qData = academicQuizSystem[activeLevel][currentQuestionIndex];
+
+    if (!qData) {
+        renderRoot.innerHTML = `
+            <div class="score-screen">
+                <div class="score-digits">${userScore} / ${academicQuizSystem[activeLevel].length}</div>
+                <h3>Avaliação do Módulo Concluída</h3>
+                <p style="color: var(--text-secondary); font-size:0.9rem; margin-top:0.5rem;">Seu aproveitamento indica conformidade técnica com critérios universitários.</p>
             </div>
         `;
         
-        // Se gabaritar, aciona a animação de confetes
-        if (score === quizData[currentLevel].length) {
+        if (userScore === academicQuizSystem[activeLevel].length) {
             confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#8a2be2', '#a14dff', '#00ff88']
+                particleCount: 140,
+                spread: 85,
+                origin: { y: 0.65 },
+                colors: ['#6366f1', '#4f46e5', '#10b981']
             });
         }
         return;
     }
 
-    // Renderiza a pergunta e as opções
-    container.innerHTML = `
-        <div class="question">${data.q}</div>
-        <div class="options-grid">
-            ${data.options.map((opt, i) => `
-                <button class="option-btn" data-index="${i}">${opt}</button>
+    renderRoot.innerHTML = `
+        <div class="question-text">${qData.q}</div>
+        <div class="options-column">
+            ${qData.options.map((opt, idx) => `
+                <button class="quiz-opt-btn" data-choice="${idx}">${opt}</button>
             `).join('')}
         </div>
-        <div class="feedback" id="feedback-box"></div>
+        <div class="feedback-area" id="quiz-feedback-anchor"></div>
     `;
 
-    // Adiciona evento de clique para cada nova opção renderizada
-    document.querySelectorAll('.option-btn').forEach(btn => {
+    document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            const selectedIdx = parseInt(this.getAttribute('data-index'));
-            checkAnswer(selectedIdx, this);
+            const chosenIndex = parseInt(this.getAttribute('data-choice'));
+            verifyUserChoice(chosenIndex, this);
         });
     });
 }
 
-function checkAnswer(selectedIdx, btnElement) {
-    const data = quizData[currentLevel][currentQuestionIdx];
-    const feedbackBox = document.getElementById('feedback-box');
-    const buttons = document.querySelectorAll('.option-btn');
+function verifyUserChoice(chosenIdx, clickedBtn) {
+    const qData = academicQuizSystem[activeLevel][currentQuestionIndex];
+    const feedbackText = document.getElementById('quiz-feedback-anchor');
+    const allOptions = document.querySelectorAll('.quiz-opt-btn');
 
-    // Desabilita todos os botões para evitar cliques repetidos
-    buttons.forEach(btn => btn.disabled = true);
+    allOptions.forEach(b => b.disabled = true);
 
-    if (selectedIdx === data.correct) {
-        btnElement.classList.add('correct');
-        feedbackBox.style.color = 'var(--accent-green)';
-        feedbackBox.innerText = data.explain;
-        score++;
+    if (chosenIdx === qData.correct) {
+        clickedBtn.classList.add('correct');
+        feedbackText.style.color = 'var(--emerald-green)';
+        feedbackText.innerText = qData.explain;
+        userScore++;
     } else {
-        btnElement.classList.add('wrong');
-        buttons[data.correct].classList.add('correct');
-        feedbackBox.style.color = 'var(--accent-red)';
-        feedbackBox.innerText = `Incorreto. A resposta certa foi destacada na tela.`;
+        clickedBtn.classList.add('wrong');
+        allOptions[qData.correct].classList.add('correct');
+        feedbackText.style.color = 'var(--rose-red)';
+        feedbackText.innerText = "Alternativa incorreta. O gabarito com a fundamentação conceitual científica foi destacado em verde.";
     }
 
-    // Avança para a próxima pergunta após um delay de 4 segundos
     setTimeout(() => {
-        currentQuestionIdx++;
-        loadQuestion();
-    }, 4000);
+        currentQuestionIndex++;
+        buildQuestionUI();
+    }, 4500);
 }
 
-// Inicializa o primeiro carregamento quando a página abrir
+// Carregamento Inicial do App
 window.addEventListener('DOMContentLoaded', () => {
-    loadQuestion();
+    buildQuestionUI();
 });
