@@ -11,9 +11,9 @@
 
 <body>
 
-<header class="hero">
-    <div class="glow"></div>
+<canvas id="particles"></canvas>
 
+<header class="hero">
     <h1>🌐 Cidadania Digital & Inteligência Artificial</h1>
     <p>Deepfakes • Desinformação • Ética digital</p>
 
@@ -24,90 +24,64 @@
     <a href="#ia">IA</a>
     <a href="#deepfake">Deepfakes</a>
     <a href="#desinformacao">Desinformação</a>
-    <a href="#faq">FAQ</a>
     <a href="#quiz">Quiz</a>
 </nav>
 
-<section id="ia" class="card reveal">
+<section id="ia" class="card">
     <h2>🤖 Inteligência Artificial</h2>
     <p>
-        A Inteligência Artificial simula a capacidade humana de aprender, analisar dados e tomar decisões.
-        Está presente em redes sociais, buscas e recomendações.
+        IA permite que sistemas aprendam padrões e tomem decisões semelhantes às humanas.
     </p>
 </section>
 
-<section id="deepfake" class="card reveal">
-    <h2>🎭 Deepfakes</h2>
-    <p>
-        Deepfakes são mídias manipuladas por IA que simulam rostos e vozes reais.
-        Podem ser usados para entretenimento ou manipulação de informação.
-    </p>
+<section id="deepfake" class="card">
 
-    <div class="video">
-        <iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q"
-        allowfullscreen></iframe>
-    </div>
+<h2>🎭 Deepfakes</h2>
+
+<p>Conteúdos manipulados por IA que imitam pessoas reais.</p>
+
+<iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q"
+allowfullscreen></iframe>
+
 </section>
 
-<section id="desinformacao" class="card reveal">
-    <h2>📢 Desinformação</h2>
+<section id="desinformacao" class="card">
 
-    <p>
-        A desinformação é a propagação de informações falsas ou enganosas na internet.
-    </p>
+<h2>📢 Desinformação</h2>
 
-    <div class="grid">
-        <div class="box">✔ Verifique fontes confiáveis</div>
-        <div class="box">✔ Compare notícias</div>
-        <div class="box">✔ Evite compartilhamento impulsivo</div>
-    </div>
+<p>Informações falsas espalhadas na internet.</p>
+
 </section>
 
-<section class="card reveal">
-    <h2>🖼️ Galeria Digital</h2>
+<section class="card">
 
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
-        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769">
-    </div>
+<h2>🖼️ Galeria</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+</div>
+
 </section>
 
-<section id="faq" class="card reveal">
-    <h2>❓ FAQ - Cidadania Digital</h2>
+<section id="quiz" class="card">
 
-    <details>
-        <summary>O que são deepfakes?</summary>
-        <p>São conteúdos manipulados por inteligência artificial.</p>
-    </details>
+<h2>🧠 Quiz</h2>
 
-    <details>
-        <summary>Como evitar desinformação?</summary>
-        <p>Verificando fontes e evitando compartilhar sem checar.</p>
-    </details>
+<p>Deepfakes são:</p>
 
-    <details>
-        <summary>A IA é perigosa?</summary>
-        <p>Depende do uso. Pode ajudar ou causar riscos se usada de forma errada.</p>
-    </details>
-</section>
+<button onclick="answer(true)">Criados por IA</button>
+<button onclick="answer(false)">Fotos reais</button>
+<button onclick="answer(false)">Imagens naturais</button>
 
-<section id="quiz" class="card reveal">
-    <h2>🧠 Quiz Interativo</h2>
+<p id="result"></p>
+<p id="score"></p>
 
-    <p id="question">Deepfakes são:</p>
-
-    <button onclick="answer(true)">Conteúdos gerados por IA</button>
-    <button onclick="answer(false)">Fotos naturais sem edição</button>
-    <button onclick="answer(false)">Vídeos impossíveis de alterar</button>
-
-    <p id="result"></p>
-    <p id="score"></p>
 </section>
 
 <footer>
-    <p>Projeto Educacional • IA e Cidadania Digital</p>
+<p>Projeto Educacional</p>
 </footer>
 
 <script src="script.js"></script>
