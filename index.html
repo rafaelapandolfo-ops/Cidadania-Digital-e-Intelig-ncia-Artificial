@@ -3,86 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cidadania Digital e IA</title>
+
+<title>Cidadania Digital & IA</title>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <header class="hero">
+    <div class="glow"></div>
+
     <h1>🌐 Cidadania Digital & Inteligência Artificial</h1>
-    <p>Deepfakes, desinformação e o impacto da IA na sociedade moderna</p>
-    <button onclick="scrollToSection()">Explorar</button>
+    <p>Deepfakes • Desinformação • Ética digital</p>
+
+    <button onclick="scrollToContent()">Explorar conteúdo</button>
 </header>
 
 <nav>
     <a href="#ia">IA</a>
     <a href="#deepfake">Deepfakes</a>
     <a href="#desinformacao">Desinformação</a>
+    <a href="#faq">FAQ</a>
     <a href="#quiz">Quiz</a>
 </nav>
 
-<section id="ia" class="card">
+<section id="ia" class="card reveal">
     <h2>🤖 Inteligência Artificial</h2>
     <p>
-        A Inteligência Artificial permite que máquinas aprendam padrões,
-        tomem decisões e realizem tarefas humanas como reconhecimento de voz,
-        imagens e recomendações.
+        A Inteligência Artificial simula a capacidade humana de aprender, analisar dados e tomar decisões.
+        Está presente em redes sociais, buscas e recomendações.
     </p>
 </section>
 
-<section id="deepfake" class="card">
+<section id="deepfake" class="card reveal">
     <h2>🎭 Deepfakes</h2>
     <p>
-        Deepfakes são conteúdos manipulados por IA que simulam pessoas reais.
-        Podem ser usados para entretenimento, mas também para enganar pessoas.
+        Deepfakes são mídias manipuladas por IA que simulam rostos e vozes reais.
+        Podem ser usados para entretenimento ou manipulação de informação.
     </p>
 
-    <iframe width="100%" height="315"
-        src="https://www.youtube.com/embed/U2R6D2n8p8Q"
-        title="Vídeo sobre deepfakes"
-        allowfullscreen>
-    </iframe>
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q"
+        allowfullscreen></iframe>
+    </div>
 </section>
 
-<section id="desinformacao" class="card">
+<section id="desinformacao" class="card reveal">
     <h2>📢 Desinformação</h2>
+
     <p>
-        A desinformação é o compartilhamento de informações falsas que podem influenciar a sociedade.
+        A desinformação é a propagação de informações falsas ou enganosas na internet.
     </p>
 
     <div class="grid">
-        <div class="box">✔ Verifique fontes</div>
-        <div class="box">✔ Compare informações</div>
-        <div class="box">✔ Evite compartilhar sem confirmar</div>
+        <div class="box">✔ Verifique fontes confiáveis</div>
+        <div class="box">✔ Compare notícias</div>
+        <div class="box">✔ Evite compartilhamento impulsivo</div>
     </div>
 </section>
 
-<section class="card">
-    <h2>🖼️ Galeria Educativa</h2>
+<section class="card reveal">
+    <h2>🖼️ Galeria Digital</h2>
 
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="IA">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="tecnologia">
-        <img src="https://images.unsplash.com/photo-1507143550189-fed454f93097" alt="dados">
+        <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769">
     </div>
 </section>
 
-<section id="quiz" class="card">
+<section id="faq" class="card reveal">
+    <h2>❓ FAQ - Cidadania Digital</h2>
+
+    <details>
+        <summary>O que são deepfakes?</summary>
+        <p>São conteúdos manipulados por inteligência artificial.</p>
+    </details>
+
+    <details>
+        <summary>Como evitar desinformação?</summary>
+        <p>Verificando fontes e evitando compartilhar sem checar.</p>
+    </details>
+
+    <details>
+        <summary>A IA é perigosa?</summary>
+        <p>Depende do uso. Pode ajudar ou causar riscos se usada de forma errada.</p>
+    </details>
+</section>
+
+<section id="quiz" class="card reveal">
     <h2>🧠 Quiz Interativo</h2>
 
     <p id="question">Deepfakes são:</p>
 
-    <button onclick="answer(false)">Imagens naturais</button>
-    <button onclick="answer(true)">Conteúdos criados por IA</button>
-    <button onclick="answer(false)">Fotos sem edição</button>
+    <button onclick="answer(true)">Conteúdos gerados por IA</button>
+    <button onclick="answer(false)">Fotos naturais sem edição</button>
+    <button onclick="answer(false)">Vídeos impossíveis de alterar</button>
 
     <p id="result"></p>
     <p id="score"></p>
 </section>
 
 <footer>
-    <p>Projeto Educacional • Cidadania Digital e IA</p>
+    <p>Projeto Educacional • IA e Cidadania Digital</p>
 </footer>
 
 <script src="script.js"></script>
