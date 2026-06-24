@@ -1,52 +1,52 @@
-// Base estruturada de dados dos Quizzes Avançados
+// Base de dados de alta densidade técnica para exames universitários
 const academicQuizSystem = {
     easy: [
         {
-            q: "No escopo normativo da Cidadania Digital, qual dimensão trata diretamente dos mecanismos preventivos contra a violação de dados e crimes de identidade causados por IA?",
+            q: "No contexto normativo de Cidadania Digital e governança, qual dimensão trata diretamente dos mecanismos regulatórios e de segurança fundamentais para mitigar os ataques de identidade gerados por modelos computacionais sintéticos?",
             options: [
-                "Acesso Digital Coletivo.",
-                "Segurança Digital (Proteção de Identidade e Dados).",
-                "Comércio Eletrônico Expandido.",
-                "Etiqueta de Redes Sociais Curtas."
+                "Comércio e Distribuição de Infraestrutura de Nuvem.",
+                "Segurança Digital (Arquitetura de Proteção de Identidade e Dados).",
+                "Universalização de Banda Larga Simétrica.",
+                "Protocolos de Etiqueta Casual em Ambientes de Rede Síncronos."
             ],
             correct: 1,
-            explain: "Correto. A Segurança Digital define os critérios éticos, jurídicos e de comportamento ativo necessários para proteger a integridade informacional dos usuários."
+            explain: "Correto. A dimensão de Segurança Digital abrange os mecanismos criptográficos, preventivos e comportamentais estruturais para blindar os ativos biométricos e identitários dos usuários na rede."
         }
     ],
     medium: [
         {
-            q: "Considerando a engenharia das Redes Adversárias Generativas (GANs), qual o objetivo principal do algoritmo do 'Gerador' durante o ciclo de treinamento?",
+            q: "Durante o treinamento adversário de mídias sintéticas hiper-realistas baseadas em GANs, qual o comportamento matemático esperado das redes quando o sistema atinge o ponto ótimo conhecido como Equilíbrio de Nash?",
             options: [
-                "Catalogar metadados estruturais de imagens reais para servidores externos.",
-                "Sintetizar dados artificiais altamente realistas a partir de vetores de ruído para burlar a validação do Discriminador.",
-                "Criptografar arquivos de mídia para impedir acessos não autorizados.",
-                "Reduzir de forma estática o contraste RGB das bordas de arquivos JPEG."
+                "O Gerador cessa o mapeamento latente por perda total de gradientes.",
+                "O Discriminador atinge precisão perfeita de 100%, bloqueando a geração de novos artefatos digitais.",
+                "O Gerador produz dados artificiais cuja distribuição de probabilidade replica perfeitamente os dados reais, fazendo com que a acurácia do Discriminador convirja para 50%.",
+                "O sistema de retropropagação é desativado por estouro de memória local."
             ],
-            correct: 1,
-            explain: "Exato. O Gerador cria mídias falsas iterativamente com o objetivo direto de simular a distribuição estatística de dados reais e enganar o Discriminador."
+            correct: 2,
+            explain: "Exato! No Equilíbrio de Nash das GANs, as mídias sintéticas produzidas pelo Gerador tornam-se estatisticamente idênticas às amostras reais, reduzindo o acerto do Discriminador a uma escolha puramente aleatória (50%)."
         }
     ],
     hard: [
         {
-            q: "No domínio da forense digital, qual metodologia é aplicada para identificar deepfakes de vídeo mapeando variações cromáticas na epiderme causadas por batimentos cardíacos humanos?",
+            q: "Em investigações avançadas de forense computacional, qual o fundamento biológico explorado pela metodologia de Fotoplethysmografia Remota (rPPG) para isolar deepfakes de vídeo de mídias legítimas?",
             options: [
-                "Análise bidimensional estática de metadados de cabeçalho EXIF.",
-                "Filtragem bilinear clássica por interpolação de matriz espacial.",
-                "Fotoplethysmografia Remota (rPPG).",
-                "Varredura simétrica de compressão quantizada de blocos MPEG."
+                "A detecção de descontinuidades geométricas estáticas na matriz de compressão espacial JPEG.",
+                "O mapeamento de flutuações microscópicas na refletância da luz causadas pelas variações do volume de sangue nos tecidos faciais sincronizados com o ciclo cardíaco.",
+                "A análise de inconsistências textuais presentes nos metadados estruturais do arquivo conteinerizado.",
+                "O cálculo de erro quantizado baseado na filtragem bilinear simétrica do canal alfa."
             ],
-            correct: 2,
-            explain: "Brilhante! A técnica rPPG detecta variações volumétricas imperceptíveis no fluxo sanguíneo do rosto. Módulos geradores tradicionais de IA criam frames estáticos e falham em replicar essa biologia."
+            correct: 1,
+            explain: "Brilhante! A técnica de rPPG analisa as ondas de pulso cardíaco geradas pela circulação de sangue no rosto por meio de algoritmos de visão computacional. Modelos geradores comuns criam frames isolados e falham cronicamente em reproduzir essa assinatura biológica contínua."
         }
     ]
 };
 
-// Gerenciador de Estados (SPA)
+// Gerenciador de Estados SPA
 let activeLevel = 'easy';
 let currentQuestionIndex = 0;
 let userScore = 0;
 
-// Navegação do Sistema de Pastas
+// Sistema de Chaveamento de Abas / Pastas
 document.querySelectorAll('.tab-link').forEach(button => {
     button.addEventListener('click', function() {
         document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
@@ -67,7 +67,7 @@ function openTab(tabId) {
         activePanel.classList.add('active');
     }
     
-    // Atualizar os seletores do menu superior caso a chamada ocorra de botões internos
+    // Sincronização dos seletores visuais do menu em chamadas de hiperlinks internos
     document.querySelectorAll('.tab-link').forEach(btn => {
         if(btn.getAttribute('data-tab') === tabId) {
             document.querySelectorAll('.tab-link').forEach(b => b.classList.remove('active'));
@@ -76,7 +76,7 @@ function openTab(tabId) {
     });
 }
 
-// Inicialização dos Eventos dos Quizzes
+// Ouvintes de Eventos para os Níveis de Quiz
 document.getElementById('sel-easy').addEventListener('click', (e) => switchQuizModule('easy', e.target));
 document.getElementById('sel-medium').addEventListener('click', (e) => switchQuizModule('medium', e.target));
 document.getElementById('sel-hard').addEventListener('click', (e) => switchQuizModule('hard', e.target));
@@ -100,17 +100,17 @@ function buildQuestionUI() {
         renderRoot.innerHTML = `
             <div class="score-screen">
                 <div class="score-digits">${userScore} / ${academicQuizSystem[activeLevel].length}</div>
-                <h3>Avaliação do Módulo Concluída</h3>
-                <p style="color: var(--text-secondary); font-size:0.9rem; margin-top:0.5rem;">Seu aproveitamento indica conformidade técnica com critérios universitários.</p>
+                <h3>Avaliação Forense Concluída</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.6rem;">Os parâmetros de resposta demonstram alta conformidade técnica com o framework científico.</p>
             </div>
         `;
         
         if (userScore === academicQuizSystem[activeLevel].length) {
             confetti({
-                particleCount: 140,
-                spread: 85,
+                particleCount: 150,
+                spread: 90,
                 origin: { y: 0.65 },
-                colors: ['#6366f1', '#4f46e5', '#10b981']
+                colors: ['#9d4edd', '#7b2cbf', '#10b981']
             });
         }
         return;
@@ -143,14 +143,14 @@ function verifyUserChoice(chosenIdx, clickedBtn) {
 
     if (chosenIdx === qData.correct) {
         clickedBtn.classList.add('correct');
-        feedbackText.style.color = 'var(--emerald-green)';
+        feedbackText.style.color = 'var(--emerald)';
         feedbackText.innerText = qData.explain;
         userScore++;
     } else {
         clickedBtn.classList.add('wrong');
         allOptions[qData.correct].classList.add('correct');
-        feedbackText.style.color = 'var(--rose-red)';
-        feedbackText.innerText = "Alternativa incorreta. O gabarito com a fundamentação conceitual científica foi destacado em verde.";
+        feedbackText.style.color = 'var(--rose)';
+        feedbackText.innerText = "Gabarito conceitual incorreto. A alternativa respaldada pela literatura acadêmica internacional foi destacada em verde.";
     }
 
     setTimeout(() => {
@@ -159,7 +159,7 @@ function verifyUserChoice(chosenIdx, clickedBtn) {
     }, 4500);
 }
 
-// Carregamento Inicial do App
+// Inicialização síncrona pós-carregamento do DOM
 window.addEventListener('DOMContentLoaded', () => {
     buildQuestionUI();
 });
