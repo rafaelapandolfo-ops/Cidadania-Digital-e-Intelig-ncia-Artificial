@@ -3,104 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: Deepfakes e Desinformação</title>
-    <!-- Fonte Acadêmica/Tecnológica -->
+    <title>Cidadania Digital & Mídias Sintéticas</title>
+    <!-- Fonte Premium de Alta Legibilidade -->
     <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Biblioteca de Confetes para o Quiz -->
+    <!-- Biblioteca de Confetes Especiais -->
     <script src="https://jsdelivr.net"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Nav Bar Estilo Glassmorphism -->
-    <nav>
-        <div class="logo">CIDADANIA<span>DIGITAL</span></div>
-        <div class="nav-links">
-            <button class="nav-btn active" data-target="home">Início</button>
-            <button class="nav-btn" data-target="impacto">Impacto Social</button>
-            <button class="nav-btn" data-target="tecnologia">Tecnologia (GANs)</button>
-            <button class="nav-btn" data-target="simulador">Simulador/Quiz</button>
+    <!-- Header & Brand -->
+    <header class="app-header">
+        <div class="brand">
+            <div class="brand-icon"></div>
+            <div class="brand-text">CIDADANIA<span>DIGITAL</span></div>
         </div>
-    </nav>
+        <div class="academic-badge">Módulo Acadêmico de Alta Performance • Computação & Sociedade</div>
+    </header>
 
-    <!-- CONTAINER PRINCIPAL (SPA) -->
-    <main class="container">
+    <!-- CONTAINER PRINCIPAL: SISTEMA DE PASTAS -->
+    <main class="folder-system">
+        
+        <!-- Abas Estilo Pastas de Arquivo -->
+        <div class="folder-tabs">
+            <button class="tab-link active" data-tab="manifesto">
+                <span class="tab-folder-icon">📂</span> 01. Visão Geral
+            </button>
+            <button class="tab-link" data-tab="impacto">
+                <span class="tab-folder-icon">📂</span> 02. Impacto Social
+            </button>
+            <button class="tab-link" data-tab="arquitetura">
+                <span class="tab-folder-icon">📂</span> 03. Engenharia (GANs)
+            </button>
+            <button class="tab-link" data-tab="simulador">
+                <span class="tab-folder-icon">⚡</span> 04. Central de Quizzes
+            </button>
+        </div>
 
-        <!-- PAGINA 1: HOME -->
-        <section id="page-home" class="page-content active">
-            <header class="hero">
-                <div class="badge">Projeto Acadêmico • Cidadania Crítica</div>
-                <h1>Inteligência Artificial:<br>O Impacto das <span>Deepfakes</span></h1>
-                <p class="subtitle">Uma análise científica sobre a erosão da verdade factual, os vetores de desinformação em massa e os mecanismos modernos de defesa digital.</p>
-                <div class="hero-actions">
-                    <button class="cta-primary" onclick="switchPage('impacto')">Iniciar Leitura</button>
-                    <button class="cta-secondary" onclick="switchPage('simulador')">Testar Minha Imunidade</button>
-                </div>
-            </header>
-        </section>
+        <!-- CONTEÚDO DE DENTRO DAS PASTAS -->
+        <div class="folder-content">
 
-        <!-- PAGINA 2: IMPACTO SOCIAL -->
-        <section id="page-impacto" class="page-content">
-            <h2 class="section-title">O Impacto Sociopolítico das Mídias Sintéticas</h2>
-            <div class="grid-academic">
-                <div class="academic-card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Desestabilização Democrática</h3>
-                    <p>Mídias sintéticas hiper-realistas são implantadas de forma cirúrgica em períodos eleitorais. Elas criam narrativas falsas impossíveis de serem desmentidas em tempo hábil, alterando a percepção pública e manipulando o debate democrático internacional.</p>
+            <!-- PASTA 1: MANIFESTO / HOME -->
+            <div id="tab-manifesto" class="tab-panel active">
+                <div class="panel-header">
+                    <h2>Inteligência Artificial: O Impacto das Deepfakes e da Desinformação</h2>
+                    <p class="panel-subtitle">Uma investigação profunda sobre a desestabilização da verdade factual na era digital.</p>
                 </div>
-                <div class="academic-card">
-                    <div class="card-icon">🔐</div>
-                    <h3>Engenharia Social e Extorsão</h3>
-                    <p>Casos reais ao redor do mundo mostram criminosos coletando fotos de redes sociais públicas para gerar materiais comprometedores falsos. O uso de clonagem de voz por IA agora permite golpes financeiros em tempo real altamente convincentes.</p>
-                </div>
-                <div class="academic-card">
-                    <div class="card-icon">⚖️</div>
-                    <h3>O Dividendo da Infidelidade</h3>
-                    <p>O maior perigo das deepfakes não é apenas fazer as pessoas acreditarem em mentiras, mas permitir que figuras públicas aleguem que fatos e vídeos reais e comprometedores são "apenas deepfakes", destruindo o conceito de prova factual.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGINA 3: TECNOLOGIA (GANs) -->
-        <section id="page-tecnologia" class="page-content">
-            <h2 class="section-title">A Arquitetura por Trás da Fraude</h2>
-            <div class="tech-container">
-                <div class="tech-text">
-                    <h3>Redes Adversárias Generativas (GANs)</h3>
-                    <p>A criação de deepfakes profissionais baseia-se no modelo criado por Ian Goodfellow em 2014, onde duas redes neurais artificiais competem entre si em um modelo de teoria dos jogos:</p>
-                    <ul>
-                        <li><strong>O Gerador:</strong> Cria mídias sintéticas falsas a partir de ruídos matemáticos, tentando enganar o sistema.</li>
-                        <li><strong>O Discriminador:</strong> Analisa a obra criada e tenta determinar se ela é real ou artificial com base em dados de treino reais.</li>
-                    </ul>
-                    <p>Esse ciclo se repete milhões de vezes até que o Discriminador não consiga mais notar a diferença. É esse processo computacional que gera o hiper-realismo.</p>
+                <div class="intro-box">
+                    <p>O avanço exponencial dos algoritmos de aprendizado profundo (Deep Learning) redefiniu a fronteira entre o real e o simulado. Este projeto analisa de forma analítica e estruturada como a proliferação de mídias sintéticas afeta diretamente a democracia, a segurança individual e os pilares fundamentais da cidadania na rede.</p>
+                    <div class="action-row">
+                        <button class="btn-primary" onclick="openTab('impacto')">Começar Investigação</button>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- PAGINA 4: QUIZ INTERATIVO -->
-        <section id="page-simulador" class="page-content">
-            <div class="quiz-container-box">
-                <div class="quiz-header">
-                    <h2>Simulador de Imunidade Digital</h2>
-                    <p>Avalie sua capacidade técnica de triagem informacional através de 3 níveis profissionais rigorosos.</p>
+            <!-- PASTA 2: IMPACTO SOCIAL -->
+            <div id="tab-impacto" class="tab-panel">
+                <div class="panel-header">
+                    <h2>A Erosão Sociopolítica do Tecido Coletivo</h2>
+                    <p class="panel-subtitle">Como as mídias geradas por IA alteram comportamentos estruturais.</p>
                 </div>
-
-                <div class="quiz-levels-nav">
-                    <button class="lvl-btn active" id="lvl-easy">Nível I: Fundamentos</button>
-                    <button class="lvl-btn" id="lvl-medium">Nível II: Vetores Técnicos</button>
-                    <button class="lvl-btn" id="lvl-hard">Nível III: Forense Digital</button>
-                </div>
-
-                <div class="quiz-card-body" id="dynamic-quiz-root">
-                    <!-- Injetado via JS -->
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-num">01</div>
+                        <h3>Desestabilização Democrática</h3>
+                        <p>Ataques cibernéticos informacionais utilizam deepfakes de áudio e vídeo de forma cirúrgica. Ao injetar conteúdos falsos hiper-realistas em momentos críticos, como janelas eleitorais, o tempo de resposta para desmentir o fato é maior do que a velocidade de replicação viral do algoritmo.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-num">02</div>
+                        <h3>Engenharia Social Avançada</h3>
+                        <p>Criminosos utilizam fotos coletadas de perfis públicos para forjar mídias de chantagem ou aplicar golpes financeiros complexos através de ferramentas de clonagem de voz (Voice Cloning), enganando familiares ou canais corporativos com facilidade.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-num">03</div>
+                        <h3>O Dividendo da Infidelidade</h3>
+                        <p>O dano colateral mais profundo da tecnologia: quando a sociedade aceita que vídeos podem ser simulados, figuras públicas usam o argumento da deepfake para negar acontecimentos e provas reais de crimes, gerando um estado de ceticismo total.</p>
+                    </div>
                 </div>
             </div>
-        </section>
 
+            <!-- PASTA 3: ARQUITETURA TÉCNICA -->
+            <div id="tab-arquitetura" class="tab-panel">
+                <div class="panel-header">
+                    <h2>Mapeamento da Engenharia Generativa</h2>
+                    <p class="panel-subtitle">O motor matemático por trás do hiper-realismo visual.</p>
+                </div>
+                <div class="tech-layout">
+                    <div class="tech-summary">
+                        <h3>Redes Adversárias Generativas (GANs)</h3>
+                        <p>A arquitetura que viabiliza a criação dessas mídias baseia-se em um modelo competitivo de Inteligência Artificial composto por duas sub-redes neurais que competem constantemente:</p>
+                    </div>
+                    <div class="gan-subgrid">
+                        <div class="gan-box red-glow">
+                            <h4>Rede Geradora</h4>
+                            <p>Tenta aprender a distribuição de dados realísticos a partir de ruídos matemáticos abstratos, criando mídias falsas cada vez melhores na tentativa de enganar a validação.</p>
+                        </div>
+                        <div class="gan-box green-glow">
+                            <h4>Rede Discriminadora</h4>
+                            <p>Atua como o avaliador crítico. Recebe amostras reais do banco de dados e as mídias artificiais criadas pelo Gerador, calculando a probabilidade estatística do arquivo ser real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASTA 4: QUIZZES INTERATIVOS -->
+            <div id="tab-simulador" class="tab-panel">
+                <div class="quiz-wrapper">
+                    <div class="quiz-sidebar">
+                        <h3>Nível Técnico</h3>
+                        <p>Selecione um dos módulos criados para avaliar seu nível crítico.</p>
+                        <div class="quiz-selector-list">
+                            <button class="lvl-selector active" id="sel-easy">Módulo I: Fundamentos</button>
+                            <button class="lvl-selector" id="sel-medium">Módulo II: Vetores Criptográficos</button>
+                            <button class="lvl-selector" id="sel-hard">Módulo III: Forense Digital</button>
+                        </div>
+                    </div>
+                    <div class="quiz-main-frame">
+                        <div id="quiz-dynamic-root">
+                            <!-- Injeção via script.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <footer>
-        <p>© 2026 Sandbox de Cidadania Digital Avançada. Trabalho estruturado para bancas de avaliação acadêmica.</p>
+        <p>Framework de Cidadania Avançada e Segurança de Dados • Desenvolvido com Padrão de Engenharia de Software.</p>
     </footer>
 
     <script src="script.js"></script>
