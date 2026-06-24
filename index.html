@@ -3,95 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cidadania Digital & IA</title>
+<title>Cidadania Digital e Inteligência Artificial</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
-
-<header class="hero">
+<header class="header">
     <h1>Cidadania Digital & Inteligência Artificial</h1>
-    <p>Deepfakes • Desinformação • Ética digital</p>
-    <button onclick="scrollToSection()">Explorar conteúdo</button>
+    <p>Deepfakes • Desinformação • Impactos na sociedade digital</p>
+    <button onclick="scrollToContent()">Explorar conteúdo</button>
 </header>
 
 <nav>
     <a href="#ia">IA</a>
-    <a href="#deepfake">Deepfakes</a>
-    <a href="#desinfo">Desinformação</a>
+    <a href="#deepfakes">Deepfakes</a>
+    <a href="#desinformacao">Desinformação</a>
     <a href="#quiz">Quiz</a>
+    <a href="#faq">FAQ</a>
 </nav>
 
+<main>
+
 <section id="ia" class="card">
-    <h2>🤖 Inteligência Artificial</h2>
-    <p>
-        A IA permite que sistemas aprendam padrões e tomem decisões com base em dados.
-        Está presente em redes sociais, busca e recomendação de conteúdo.
-    </p>
+<h2>Inteligência Artificial</h2>
+<p>
+A Inteligência Artificial é uma área da computação que permite que sistemas realizem tarefas que normalmente exigem inteligência humana, como análise de dados, reconhecimento de padrões e tomada de decisões.
+</p>
 </section>
 
-<section id="deepfake" class="card">
-
-<h2>🎭 Deepfakes</h2>
-
+<section id="deepfakes" class="card">
+<h2>Deepfakes</h2>
 <p>
-Deepfakes são mídias manipuladas por inteligência artificial que simulam pessoas reais.
+Deepfakes são conteúdos manipulados por inteligência artificial que simulam rostos, vozes ou vídeos de forma realista, podendo ser usados tanto para fins criativos quanto para desinformação.
 </p>
-
-<div class="video">
-<iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q" allowfullscreen></iframe>
-</div>
-
 </section>
 
-<section id="desinfo" class="card">
-
-<h2>📢 Desinformação</h2>
-
+<section id="desinformacao" class="card">
+<h2>Desinformação</h2>
 <p>
-A desinformação é o compartilhamento de informações falsas ou enganosas.
+A desinformação é a disseminação de informações falsas ou enganosas, que pode influenciar opiniões, decisões e comportamentos na sociedade.
 </p>
-
-<div class="grid">
-<div class="box">✔ Verificar fontes</div>
-<div class="box">✔ Comparar informações</div>
-<div class="box">✔ Evitar compartilhamento automático</div>
-</div>
-
 </section>
 
 <section class="card">
+<h2>Como se proteger</h2>
 
-<h2>🖼️ Galeria Educativa</h2>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
-<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
-<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769">
-</div>
-
+<ul>
+<li>Verifique fontes confiáveis</li>
+<li>Compare informações antes de compartilhar</li>
+<li>Evite conteúdos sensacionalistas</li>
+<li>Busque confirmação em mais de uma fonte</li>
+</ul>
 </section>
 
 <section id="quiz" class="card">
-
-<h2>🧠 Quiz Interativo</h2>
+<h2>Quiz Interativo</h2>
 
 <p id="question">Deepfakes são:</p>
 
-<button onclick="answer(true)">Criados por IA</button>
-<button onclick="answer(false)">Fotos naturais</button>
-<button onclick="answer(false)">Imagens sem edição</button>
+<button onclick="answer(true)">Conteúdos criados por IA</button>
+<button onclick="answer(false)">Fotos reais sem edição</button>
+<button onclick="answer(false)">Imagens naturais</button>
 
 <p id="result"></p>
 <p id="score"></p>
+</section>
+
+<section id="faq" class="card">
+<h2>Perguntas Frequentes</h2>
+
+<details>
+<summary>O que é cidadania digital?</summary>
+<p>É o uso responsável e consciente da tecnologia e da internet.</p>
+</details>
+
+<details>
+<summary>Deepfakes são sempre perigosos?</summary>
+<p>Não. Podem ser usados de forma criativa, mas também podem causar desinformação.</p>
+</details>
+
+<details>
+<summary>Como evitar fake news?</summary>
+<p>Verificando fontes confiáveis e não compartilhando sem confirmar.</p>
+</details>
 
 </section>
 
+</main>
+
 <footer>
-<p>Projeto Educacional • IA & Cidadania Digital</p>
+<p>Projeto Educacional • Cidadania Digital e Inteligência Artificial</p>
 </footer>
 
 <script src="script.js"></script>
