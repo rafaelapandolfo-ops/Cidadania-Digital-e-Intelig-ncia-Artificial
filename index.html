@@ -3,34 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cidadania Digital & IA</title>
-
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
+<canvas id="bg"></canvas>
 
 <header class="hero">
-    <h1>🌐 Cidadania Digital & Inteligência Artificial</h1>
+    <h1>Cidadania Digital & Inteligência Artificial</h1>
     <p>Deepfakes • Desinformação • Ética digital</p>
-
-    <button onclick="scrollToContent()">Explorar conteúdo</button>
+    <button onclick="scrollToSection()">Explorar conteúdo</button>
 </header>
 
 <nav>
     <a href="#ia">IA</a>
     <a href="#deepfake">Deepfakes</a>
-    <a href="#desinformacao">Desinformação</a>
+    <a href="#desinfo">Desinformação</a>
     <a href="#quiz">Quiz</a>
 </nav>
 
 <section id="ia" class="card">
     <h2>🤖 Inteligência Artificial</h2>
     <p>
-        IA permite que sistemas aprendam padrões e tomem decisões semelhantes às humanas.
+        A IA permite que sistemas aprendam padrões e tomem decisões com base em dados.
+        Está presente em redes sociais, busca e recomendação de conteúdo.
     </p>
 </section>
 
@@ -38,42 +36,54 @@
 
 <h2>🎭 Deepfakes</h2>
 
-<p>Conteúdos manipulados por IA que imitam pessoas reais.</p>
+<p>
+Deepfakes são mídias manipuladas por inteligência artificial que simulam pessoas reais.
+</p>
 
-<iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q"
-allowfullscreen></iframe>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/U2R6D2n8p8Q" allowfullscreen></iframe>
+</div>
 
 </section>
 
-<section id="desinformacao" class="card">
+<section id="desinfo" class="card">
 
 <h2>📢 Desinformação</h2>
 
-<p>Informações falsas espalhadas na internet.</p>
+<p>
+A desinformação é o compartilhamento de informações falsas ou enganosas.
+</p>
+
+<div class="grid">
+<div class="box">✔ Verificar fontes</div>
+<div class="box">✔ Comparar informações</div>
+<div class="box">✔ Evitar compartilhamento automático</div>
+</div>
 
 </section>
 
 <section class="card">
 
-<h2>🖼️ Galeria</h2>
+<h2>🖼️ Galeria Educativa</h2>
 
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
 <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
 <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+<img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769">
 </div>
 
 </section>
 
 <section id="quiz" class="card">
 
-<h2>🧠 Quiz</h2>
+<h2>🧠 Quiz Interativo</h2>
 
-<p>Deepfakes são:</p>
+<p id="question">Deepfakes são:</p>
 
 <button onclick="answer(true)">Criados por IA</button>
-<button onclick="answer(false)">Fotos reais</button>
-<button onclick="answer(false)">Imagens naturais</button>
+<button onclick="answer(false)">Fotos naturais</button>
+<button onclick="answer(false)">Imagens sem edição</button>
 
 <p id="result"></p>
 <p id="score"></p>
@@ -81,7 +91,7 @@ allowfullscreen></iframe>
 </section>
 
 <footer>
-<p>Projeto Educacional</p>
+<p>Projeto Educacional • IA & Cidadania Digital</p>
 </footer>
 
 <script src="script.js"></script>
