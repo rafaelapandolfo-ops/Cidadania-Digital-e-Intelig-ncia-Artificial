@@ -1,88 +1,32 @@
-/* Variáveis de design para consistência visual */
-:root {
-  --bg-deep-space: #0b0a12; /* Preto espacial profundo */
-  --bg-card-dark: #161426;  /* Roxo escuro para contraste */
-  --neon-purple: #9d4edd;   /* Roxo principal vibrante */
-  --neon-glow: #bd93f9;     /* Roxo claro para brilho e hover */
-  --text-pure: #f8f9fa;     /* Branco puro para leitura perfeita */
-  --text-muted: #9a9fac;    /* Cinza azulado para textos secundários */
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuro Premium - Dashboard</title>
+    
+    <!-- Link para o arquivo CSS (substitua pelo seu caminho real se necessário) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* Reset de layout e centralização absoluta */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-deep-space);
-  color: var(--text-pure);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    <!-- Main indica o conteúdo principal da página para os motores de busca -->
+    <main aria-label="Conteúdo Principal">
+        
+        <!-- Cartão de interface moderno -->
+        <article class="card-premium">
+            <h1>Construa Seu Futuro</h1>
+            <p>Uma interface otimizada com código limpo, alta performance e design focado na experiência do usuário.</p>
+            
+            <!-- Botão com acessibilidade para leitores de tela -->
+            <button class="btn-neon" type="button" aria-live="polite">
+                Iniciar Jornada
+            </button>
+        </article>
 
-/* Cartão com efeito de profundidade e borda sutil */
-.card-premium {
-  background: var(--bg-card-dark);
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(157, 78, 221, 0.15);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
-              0 0 50px rgba(157, 78, 221, 0.05);
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  backdrop-filter: blur(10px);
-}
+    </main>
 
-/* Títulos marcantes */
-.card-premium h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-}
-
-.card-premium p {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-}
-
-/* Botão de alta conversão com efeito Glow (Brilho) */
-.btn-neon {
-  background: var(--neon-purple);
-  color: var(--text-pure);
-  border: none;
-  padding: 16px 32px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
-}
-
-/* Efeitos de estado interativo */
-.btn-neon:hover {
-  background: var(--neon-glow);
-  box-shadow: 0 0 25px rgba(189, 147, 249, 0.6);
-  transform: translateY(-2px);
-}
-
-.btn-neon:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(157, 78, 221, 0.4);
-}
-
-/* Estado desativado suave */
-.btn-neon:disabled {
-  background: #322f46;
-  color: var(--text-muted);
-  box-shadow: none;
-  cursor: not-allowed;
-  transform: none;
-}
+    <!-- Link para o arquivo JavaScript inserido no final para não travar o carregamento da página -->
+    <script src="script.js"></script>
+</body>
+</html>
