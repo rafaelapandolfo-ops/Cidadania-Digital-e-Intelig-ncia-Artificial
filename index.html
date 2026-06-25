@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuro Premium - Dashboard</title>
+    <title>Futuro Premium - Conectar</title>
     
-    <!-- 🎨 CSS TOTALMENTE INTEGRADO (Preto e Roxo Neon) -->
     <style>
-        /* Variáveis de design para consistência visual */
+        /* Variáveis de design para alta performance visual */
         :root {
-          --bg-deep-space: #0b0a12; /* Preto espacial profundo */
-          --bg-card-dark: #161426;  /* Roxo escuro para contraste */
-          --neon-purple: #9d4edd;   /* Roxo principal vibrante */
-          --neon-glow: #bd93f9;     /* Roxo claro para brilho e hover */
-          --text-pure: #f8f9fa;     /* Branco puro para leitura perfeita */
-          --text-muted: #9a9fac;    /* Cinza azulado para textos secundários */
+          --bg-deep-space: #0b0a12; 
+          --bg-card-dark: #161426;  
+          --neon-purple: #9d4edd;   
+          --neon-glow: #bd93f9;     
+          --text-pure: #f8f9fa;     
+          --text-muted: #9a9fac;    
+          --error-color: #ff5555;
         }
 
-        /* Reset de layout e centralização absoluta */
+        /* Configuração base da tela */
         body {
           margin: 0;
           padding: 0;
@@ -31,7 +31,7 @@
           min-height: 100vh;
         }
 
-        /* Cartão com efeito de profundidade e borda sutil */
+        /* Container do formulário */
         .card-premium {
           background: var(--bg-card-dark);
           padding: 40px;
@@ -39,44 +39,88 @@
           border: 1px solid rgba(157, 78, 221, 0.2);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
                       0 0 50px rgba(157, 78, 221, 0.08);
-          text-align: center;
           max-width: 400px;
           width: 90%;
-          backdrop-filter: blur(10px);
         }
 
-        /* Títulos marcantes */
-        .card-premium h1 {
-          font-size: 28px;
-          font-weight: 700;
-          margin-top: 0;
-          margin-bottom: 12px;
-          letter-spacing: -0.5px;
-        }
-
-        .card-premium p {
-          color: var(--text-muted);
-          font-size: 15px;
-          line-height: 1.6;
+        .card-header {
+          text-align: center;
           margin-bottom: 32px;
         }
 
-        /* Botão de alta conversão com efeito Glow (Brilho) */
+        .card-header h1 {
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+          letter-spacing: -0.5px;
+        }
+
+        .card-header p {
+          color: var(--text-muted);
+          font-size: 14px;
+          margin: 0;
+        }
+
+        /* Grupos de entrada de dados */
+        .input-group {
+          margin-bottom: 20px;
+          position: relative;
+        }
+
+        .input-group label {
+          display: block;
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text-muted);
+          margin-bottom: 8px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .input-group input {
+          width: 100%;
+          padding: 14px 16px;
+          font-size: 15px;
+          background-color: rgba(11, 10, 18, 0.5);
+          border: 1px solid rgba(157, 78, 221, 0.3);
+          border-radius: 8px;
+          color: var(--text-pure);
+          box-sizing: border-box;
+          transition: all 0.3s ease;
+        }
+
+        /* Foco nos campos com efeito neon */
+        .input-group input:focus {
+          outline: none;
+          border-color: var(--neon-glow);
+          box-shadow: 0 0 12px rgba(189, 147, 249, 0.3);
+          background-color: rgba(11, 10, 18, 0.8);
+        }
+
+        /* Mensagem de erro */
+        .error-message {
+          color: var(--error-color);
+          font-size: 12px;
+          margin-top: 6px;
+          display: none;
+        }
+
+        /* Botão principal */
         .btn-neon {
           background: var(--neon-purple);
           color: var(--text-pure);
           border: none;
-          padding: 16px 32px;
+          padding: 16px;
           font-size: 16px;
           font-weight: 600;
           border-radius: 10px;
           cursor: pointer;
           width: 100%;
+          margin-top: 10px;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
         }
 
-        /* Efeitos de estado interativo */
         .btn-neon:hover {
           background: var(--neon-glow);
           box-shadow: 0 0 25px rgba(189, 147, 249, 0.7);
@@ -85,53 +129,108 @@
 
         .btn-neon:active {
           transform: translateY(1px);
-          box-shadow: 0 2px 8px rgba(157, 78, 221, 0.4);
         }
 
-        /* Estado desativado suave */
-        .btn-neon:disabled {
-          background: #322f46;
-          color: var(--text-muted);
-          box-shadow: none;
-          cursor: not-allowed;
-          transform: none;
+        /* Feedback de Sucesso */
+        .success-screen {
+          display: none;
+          text-align: center;
+          animation: fadeIn 0.5s ease forwards;
+        }
+
+        .success-screen h2 {
+          font-size: 26px;
+          color: var(--neon-glow);
+          margin-bottom: 12px;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌐 HTML SEMÂNTICO -->
-    <main aria-label="Conteúdo Principal">
-        
+    <main>
         <article class="card-premium">
-            <h1>Construa Seu Futuro</h1>
-            <p>Uma interface otimizada com código limpo, alta performance e design focado na experiência do usuário.</p>
-            
-            <button class="btn-neon" type="button" aria-live="polite">
-                Iniciar Jornada
-            </button>
-        </article>
+            <!-- Formulário de Acesso -->
+            <form id="loginForm" novalidate>
+                <div class="card-header">
+                    <h1>Acessar Sistema</h1>
+                    <p>Insira suas credenciais para continuar</p>
+                </div>
 
+                <div class="input-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                    <div class="error-message" id="emailError">Por favor, insira um e-mail válido.</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha de Acesso</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <div class="error-message" id="passwordError">A senha deve ter pelo menos 6 caracteres.</div>
+                </div>
+
+                <button class="btn-neon" type="submit">
+                    Autenticar Entrada
+                </button>
+            </form>
+
+            <!-- Tela que aparece após o sucesso de verdade -->
+            <div id="successView" class="success-screen">
+                <h2>Jornada Iniciada! 🚀</h2>
+                <p>Credenciais validadas com sucesso. Redirecionando para o seu painel de controle...</p>
+            </div>
+        </article>
     </main>
 
-    <!-- ⚡ JAVASCRIPT SEGURO E EMBUTIDO -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-          const ctaButton = document.querySelector('.btn-neon');
-          const mainTitle = document.querySelector('.card-premium h1');
-          const mainText = document.querySelector('.card-premium p');
+            const form = document.getElementById('loginForm');
+            const successView = document.getElementById('successView');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
 
-          // Validação de segurança básica
-          if (!ctaButton || !mainTitle || !mainText) return;
+            if (!form) return;
 
-          // Evento de clique
-          ctaButton.addEventListener('click', () => {
-            mainTitle.textContent = 'Jornada Iniciada 🚀';
-            mainText.textContent = 'Seu código e interface estão prontos para o próximo nível.';
-            
-            ctaButton.textContent = 'Confirmado';
-            ctaButton.disabled = true;
-          });
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Impede o recarregamento incorreto da página
+                
+                let isValid = true;
+
+                // Validação simples de E-mail
+                if (!emailInput.value.includes('@') || emailInput.value.length < 5) {
+                    document.getElementById('emailError').style.display = 'block';
+                    emailInput.style.borderColor = 'var(--error-color)';
+                    isValid = false;
+                } else {
+                    document.getElementById('emailError').style.display = 'none';
+                    emailInput.style.borderColor = 'rgba(157, 78, 221, 0.3)';
+                }
+
+                // Validação simples de Senha
+                if (passwordInput.value.length < 6) {
+                    document.getElementById('passwordError').style.display = 'block';
+                    passwordInput.style.borderColor = 'var(--error-color)';
+                    isValid = false;
+                } else {
+                    document.getElementById('passwordError').style.display = 'none';
+                    passwordInput.style.borderColor = 'rgba(157, 78, 221, 0.3)';
+                }
+
+                // Se os dados forem válidos, faz a transição de tela profissional
+                if (isValid) {
+                    form.style.display = 'none';
+                    successView.style.display = 'block';
+                    
+                    // Aqui simulamos uma resposta do servidor após 2 segundos
+                    setTimeout(() => {
+                        alert('Aqui você pode direcionar o usuário para a sua próxima página ou sistema!');
+                    }, 2000);
+                }
+            });
         });
     </script>
 </body>
