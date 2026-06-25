@@ -3,287 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universo Neon - O Quiz do Seu Futuro</title>
-    
-    <style>
-        /* 🎨 IDENTIDADE VISUAL PREMUM (PRETO E ROXO NEON) */
-        :root {
-          --bg-dark: #08070d;       /* Preto profundo de fundo */
-          --bg-card: #141226;       /* Roxo escuro para os blocos */
-          --purple-neon: #9d4edd;   /* Roxo vibrante */
-          --purple-glow: #bd93f9;   /* Roxo claro para destaques */
-          --text-main: #f8f9fa;     /* Branco para leitura */
-          --text-muted: #9a9fac;    /* Cinza sutil */
-          --success: #00f5d4;       /* Verde neon para acertos */
-        }
-
-        body {
-          margin: 0;
-          padding: 20px;
-          box-sizing: border-box;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          background-color: var(--bg-dark);
-          color: var(--text-main);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-        }
-
-        /* CONTAINER PRINCIPAL DO SITE */
-        .container {
-          background: var(--bg-card);
-          padding: 40px;
-          border-radius: 24px;
-          border: 1px solid rgba(157, 78, 221, 0.25);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
-                      0 0 60px rgba(157, 78, 221, 0.08);
-          max-width: 500px;
-          width: 100%;
-          text-align: center;
-          backdrop-filter: blur(12px);
-        }
-
-        header h1 {
-          font-size: 32px;
-          font-weight: 800;
-          margin: 0 0 10px 0;
-          letter-spacing: -0.5px;
-          background: linear-gradient(135deg, #fff, var(--purple-glow));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-          color: var(--text-muted);
-          font-size: 15px;
-          line-height: 1.6;
-          margin-bottom: 35px;
-        }
-
-        /* ÁREA DO QUIZ */
-        .quiz-box {
-          text-align: left;
-        }
-
-        .question-text {
-          font-size: 18px;
-          font-weight: 600;
-          margin-bottom: 20px;
-          line-height: 1.4;
-        }
-
-        /* OPÇÕES DE RESPOSTA */
-        .options-list {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          margin-bottom: 30px;
-        }
-
-        .option-btn {
-          background: rgba(8, 7, 13, 0.6);
-          color: var(--text-main);
-          border: 1px solid rgba(157, 78, 221, 0.2);
-          padding: 16px 20px;
-          font-size: 15px;
-          font-weight: 500;
-          border-radius: 12px;
-          cursor: pointer;
-          text-align: left;
-          transition: all 0.25s ease;
-        }
-
-        .option-btn:hover {
-          border-color: var(--purple-glow);
-          background: rgba(157, 78, 221, 0.1);
-          transform: translateX(4px);
-        }
-
-        /* Estado Selecionado */
-        .option-btn.selected {
-          border-color: var(--purple-neon);
-          background: var(--purple-neon);
-          box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
-        }
-
-        /* BOTÃO AVANÇAR */
-        .action-btn {
-          background: var(--purple-neon);
-          color: var(--text-main);
-          border: none;
-          padding: 16px;
-          font-size: 16px;
-          font-weight: 600;
-          border-radius: 12px;
-          cursor: pointer;
-          width: 100%;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
-        }
-
-        .action-btn:hover {
-          background: var(--purple-glow);
-          box-shadow: 0 0 25px rgba(189, 147, 249, 0.5);
-        }
-
-        .action-btn:disabled {
-          background: #2b283d;
-          color: var(--text-muted);
-          box-shadow: none;
-          cursor: not-allowed;
-        }
-
-        /* TELA DE RESULTADOS */
-        .results-screen {
-          display: none;
-          animation: scaleUp 0.4s ease forwards;
-        }
-
-        .score-badge {
-          font-size: 48px;
-          font-weight: 800;
-          color: var(--success);
-          margin: 20px 0;
-          text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
-        }
-
-        @keyframes scaleUp {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-    </style>
+    <title>Cidadania Digital: Deepfakes e Engenharia da Desinformação</title>
+    <!-- Fontes Acadêmicas de Alta Performance -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Efeitos de Partículas para Validação de Sucesso -->
+    <script src="https://jsdelivr.net"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="container">
-        <!-- Tela de Perguntas -->
-        <div id="quiz-window">
-            <header>
-                <h1>Desafio do Futuro</h1>
-                <p>Responda às questões com sabedoria para medir sua prontidão tecnológica.</p>
-            </header>
+    <!-- Header Corporativo/Acadêmico -->
+    <header class="app-header">
+        <div class="brand">
+            <div class="brand-icon"></div>
+            <div class="brand-text">CIDADANIA<span>DIGITAL</span></div>
+        </div>
+        <div class="academic-badge">Pesquisa Avançada • Inteligência Artificial & Sociedade • Nível V</div>
+    </header>
 
-            <section class="quiz-box">
-                <div class="question-text" id="question-title">Carregando pergunta...</div>
-                
-                <div class="options-list" id="options-container">
-                    <!-- Gerado via Javascript -->
-                </div>
-
-                <button class="action-btn" id="next-btn" disabled>Avançar Questão</button>
-            </section>
+    <!-- SISTEMA DE PASTAS MODULAR -->
+    <main class="folder-system">
+        
+        <!-- Abas Estilo Pastas de Arquivos Físicos -->
+        <div class="folder-tabs">
+            <button class="tab-link active" data-tab="visao">
+                <span class="tab-folder-icon">📁</span> 01. Visão Geral
+            </button>
+            <button class="tab-link" data-tab="socio">
+                <span class="tab-folder-icon">📁</span> 02. Vetores de Impacto
+            </button>
+            <button class="tab-link" data-tab="arquitetura">
+                <span class="tab-folder-icon">📁</span> 03. Engenharia de Redes
+            </button>
+            <button class="tab-link" data-tab="regulacao">
+                <span class="tab-folder-icon">📁</span> 04. Marcos Regulatórios
+            </button>
+            <button class="tab-link" data-tab="simulador">
+                <span class="tab-folder-icon">⚡</span> 05. Matriz de Avaliação
+            </button>
         </div>
 
-        <!-- Tela Final de Pontuação -->
-        <div id="results-window" class="results-screen">
-            <h1>Quiz Concluído! 🚀</h1>
-            <p>Seu desempenho foi calculado com sucesso no sistema.</p>
-            <div class="score-badge" id="score-text">0/0</div>
-            <p id="feedback-text">Analisando resultados...</p>
-            <button class="action-btn" onclick="location.reload()" style="margin-top: 20px;">Refazer Desafio</button>
+        <!-- CONTEÚDO EXPANDIDO DAS PASTAS -->
+        <div class="folder-content">
+
+            <!-- PASTA 1: VISÃO GERAL -->
+            <div id="tab-visao" class="tab-panel active">
+                <div class="panel-header">
+                    <h2>Mídias Sintéticas e a Desestruturação Factual</h2>
+                    <p class="panel-subtitle">A epistemologia da verdade na era do Deep Learning corporativo.</p>
+                </div>
+                <div class="intro-box">
+                    <p>A democratização de modelos generativos avançados rompeu com o paradigma histórico de que mídias gravadas servem como registro empírico de eventos reais. Este ecossistema digital examina, sob a ótica da governança computacional, como a sofisticação das ferramentas de síntese audiovisual desafia a soberania informacional, a estabilidade das instituições democráticas e os limites da responsabilidade civil dos provedores de aplicação.</p>
+                    <div class="action-row">
+                        <button class="btn-primary" onclick="openTab('socio')">Acessar Vetores de Impacto</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASTA 2: VETORES DE IMPACTO -->
+            <div id="tab-socio" class="tab-panel">
+                <div class="panel-header">
+                    <h2>Implicações Sociopolíticas e Engenharia Social</h2>
+                    <p class="panel-subtitle">Análise sistemática dos danos e desestabilização provocados por IA generativa.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-num">SEC // 01</div>
+                        <h3>Erosão Epistêmica Baseada em Algoritmos</h3>
+                        <p>O fluxo de deepfakes hiper-realistas distribuído por redes de desinformação não busca apenas convencer o receptor de uma mentira específica, mas sim saturar o ecossistema de dados a ponto de gerar a apatia informacional. O cidadão perde a capacidade de discernir dados autênticos, delegando sua validação a bolhas ideológicas polarizadas.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-num">SEC // 02</div>
+                        <h3>Chantagem Sintética Dinâmica</h3>
+                        <p>Ataques direcionados coletam assinaturas biométricas e dados faciais de mídias expostas publicamente. Através de processos automatizados de transferência de traços faciais (Face Swapping), agentes maliciosos forjam evidências criminosas ou comprometedoras, viabilizando esquemas sofisticados de extorsão e fraudes financeiras corporativas.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-num">SEC // 03</div>
+                        <h3>A Negação Plausível Estrutural</h3>
+                        <p>A existência consolidada da fraude por inteligência artificial gera um fenômeno conhecido na literatura como "o dividendo do mentiroso". Figuras públicas envolvidas em flagrantes de corrupção ou crimes documentados por gravações legítimas utilizam a existência da tecnologia para alegar que mídias reais são manipulações sintéticas, evadindo a responsabilização legal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASTA 3: ENGENHARIA DE REDES -->
+            <div id="tab-arquitetura" class="tab-panel">
+                <div class="panel-header">
+                    <h2>Mecanismos Computacionais das Arquiteturas Generativas</h2>
+                    <p class="panel-subtitle">A matemática por trás do realismo artificial.</p>
+                </div>
+                <div class="tech-layout">
+                    <div class="tech-summary">
+                        <h3>O Embate de Teoria dos Jogos nas GANs</h3>
+                        <p>As mídias geradas por IA utilizam Redes Adversárias Generativas (GANs) e Modelos de Difusão Latente. O processo opera por meio de otimização contínua baseada em uma função de perda de soma zero:</p>
+                    </div>
+                    <div class="gan-subgrid">
+                        <div class="gan-box red-glow">
+                            <h4>Rede Geradora (G)</h4>
+                            <p>Mapeia vetores de ruído de um espaço latente para gerar mídias artificiais. Ela calibra gradientes de erro continuamente para ajustar características como iluminação global, oclusão ambiental e microtexturas com o objetivo de minimizar a taxa de detecção do validador.</p>
+                        </div>
+                        <div class="gan-box green-glow">
+                            <h4>Rede Discriminadora (D)</h4>
+                            <p>Um classificador probabilístico treinado com amostras reais da população de dados. Ela analisa os outputs da Rede Geradora e calcula a perda matemática do sistema, aplicando retropropagação (backpropagation) para refinar a precisão computacional global.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASTA 4: MARCOS REGULATÓRIOS -->
+            <div id="tab-regulacao" class="tab-panel">
+                <div class="panel-header">
+                    <h2>Governança, Legislação e Resposta Institucional</h2>
+                    <p class="panel-subtitle">Desafios regulatórios internacionais e soberania tecnológica.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-num">LAW // 01</div>
+                        <h3>O AI Act da União Europeia</h3>
+                        <p>O marco legal estabelece classificações severas baseadas em faixas de risco. Modelos generativos que produzem deepfakes são submetidos a obrigações estritas de transparência, exigindo a rotulagem criptográfica invisível (Watermarking) e a discriminação explícita de conteúdos gerados de forma sintética.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-num">LAW // 02</div>
+                        <h3>Responsabilização Civil de Plataformas</h3>
+                        <p>O debate jurídico central gira em torno da revisão da imunidade civil dos provedores de hospedagem. O avanço regulatório exige que as redes sociais atuem com diligência interna imediata ao serem notificadas sobre mídias sintéticas difamatórias que ameacem a ordem pública ou a integridade de terceiros.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASTA 5: MATRIZ DE AVALIAÇÃO (QUIZ) -->
+            <div id="tab-simulador" class="tab-panel">
+                <div class="quiz-wrapper">
+                    <div class="quiz-sidebar">
+                        <h3>Matriz Crítica</h3>
+                        <p>Selecione o nível de avaliação técnica para rodar os testes criptográficos e forenses.</p>
+                        <div class="quiz-selector-list">
+                            <button class="lvl-selector active" id="sel-easy">Nível I: Fundamentos Éticos</button>
+                            <button class="lvl-selector" id="sel-medium">Nível II: Modelagem de Redes</button>
+                            <button class="lvl-selector" id="sel-hard">Nível III: Metodologia Forense</button>
+                        </div>
+                    </div>
+                    <div class="quiz-main-frame">
+                        <div id="quiz-dynamic-root">
+                            <!-- Processado via script.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- ⚡ LOGICA DO QUIZ EM JAVASCRIPT -->
-    <script>
-        // Banco de dados de perguntas do Quiz
-        const quizData = [
-            {
-                question: "Qual das alternativas representa a melhor prática para vincular códigos em um site de alta performance?",
-                options: [
-                    "Colocar tudo espalhado sem ordem", 
-                    "Usar arquivos integrados ou caminhos perfeitamente validados", 
-                    "Não usar JavaScript no navegador", 
-                    "Deixar telas brancas propositalmente"
-                ],
-                correct: 1
-            },
-            {
-                question: "O que o termo 'Modo Escuro' (Dark Mode) prioriza além da estética bonita?",
-                options: [
-                    "Gasto excessivo de energia", 
-                    "Dificuldade de leitura no escuro", 
-                    "Conforto visual do usuário e economia de bateria", 
-                    "Apenas carregar imagens mais rápido"
-                ],
-                correct: 2
-            },
-            {
-                question: "Qual elemento traz a interatividade em tempo real para as páginas da Web?",
-                options: [
-                    "Apenas o arquivo HTML puro", 
-                    "O banco de dados SQL isolado", 
-                    "Imagens estáticas de fundo", 
-                    "O motor JavaScript rodando no navegador"
-                ],
-                correct: 3
-            }
-        ];
+    <footer>
+        <p>Desenvolvido sob Diretrizes Acadêmicas Rigorosas • Arquitetura de Interface Computacional Premium</p>
+    </footer>
 
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let selectedOptionIndex = null;
-
-        const questionTitle = document.getElementById('question-title');
-        const optionsContainer = document.getElementById('options-container');
-        const nextButton = document.getElementById('next-btn');
-        const quizWindow = document.getElementById('quiz-window');
-        const resultsWindow = document.getElementById('results-window');
-        const scoreText = document.getElementById('score-text');
-        const feedbackText = document.getElementById('feedback-text');
-
-        function loadQuestion() {
-            // Limpa seleções anteriores
-            selectedOptionIndex = null;
-            nextButton.disabled = true;
-            nextButton.textContent = currentQuestionIndex === quizData.length - 1 ? "Finalizar Quiz" : "Avançar Questão";
-            optionsContainer.innerHTML = '';
-
-            const currentData = quizData[currentQuestionIndex];
-            questionTitle.textContent = `${currentQuestionIndex + 1}. ${currentData.question}`;
-
-            // Renderiza as alternativas bonitas
-            currentData.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.classList.add('option-btn');
-                button.textContent = option;
-                button.type = 'button';
-                
-                button.addEventListener('click', () => {
-                    // Remove seleção dos outros botões
-                    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
-                    // Seleciona o atual
-                    button.classList.add('selected');
-                    selectedOptionIndex = index;
-                    nextButton.disabled = false;
-                });
-
-                optionsContainer.appendChild(button);
-            });
-        }
-
-        nextButton.addEventListener('click', () => {
-            if (selectedOptionIndex === null) return;
-
-            // Valida se acertou
-            if (selectedOptionIndex === quizData[currentQuestionIndex].correct) {
-                score++;
-            }
-
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < quizData.length) {
-                loadQuestion();
-            } else {
-                showResults();
-            }
-        });
-
-        function showResults() {
-            quizWindow.style.display = 'none';
-            resultsWindow.style.display = 'block';
-            scoreText.textContent = `${score} / ${quizData.length}`;
-            
-            if (score === quizData.length) {
+    <script src="script.js"></script>
+</body>
+</html>
