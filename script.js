@@ -1,14 +1,20 @@
-// Aguarda o DOM estar pronto para evitar erros de elemento nulo
+// Garante a execução apenas após o carregamento completo do documento
 document.addEventListener('DOMContentLoaded', () => {
-  const botao = document.querySelector('.btn-interativo');
-  const titulo = document.querySelector('.card h1');
+  const ctaButton = document.querySelector('.btn-neon');
+  const mainTitle = document.querySelector('.card-premium h1');
+  const mainText = document.querySelector('.card-premium p');
 
-  // Verifica se os elementos existem antes de aplicar o evento
-  if (botao && titulo) {
-    botao.addEventListener('click', () => {
-      titulo.textContent = 'Ação Executada! 🎉';
-      botao.textContent = 'Feito!';
-      botao.disabled = true; // Evita cliques duplos desnecessários
-    });
-  }
+  // Padrão de segurança: validação de elementos
+  if (!ctaButton || !mainTitle || !mainText) return;
+
+  // Gerenciador de eventos limpo
+  ctaButton.addEventListener('click', () => {
+    // Transição de conteúdo controlada
+    mainTitle.textContent = 'Jornada Iniciada 🚀';
+    mainText.textContent = 'Seu código e interface estão prontos para o próximo nível.';
+    
+    // Desativação preventiva de cliques múltiplos
+    ctaButton.textContent = 'Confirmado';
+    ctaButton.disabled = true;
+  });
 });
