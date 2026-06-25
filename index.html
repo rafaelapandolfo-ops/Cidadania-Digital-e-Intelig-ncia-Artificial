@@ -3,159 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: Deepfakes e Engenharia da Desinformação</title>
-    <!-- Fontes Acadêmicas de Alta Performance -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Efeitos de Partículas para Validação de Sucesso -->
+    <title>Sintética: Inteligência Artificial, Deepfakes e Sociedade</title>
+    <!-- Google Fonts: Inter and Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Confetti Library for Master Score -->
     <script src="https://jsdelivr.net"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Corporativo/Acadêmico -->
-    <header class="app-header">
-        <div class="brand">
-            <div class="brand-icon"></div>
-            <div class="brand-text">CIDADANIA<span>DIGITAL</span></div>
+    <!-- Cinematic Background Glow Elements -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Premium Navigation Bar -->
+    <nav class="glass-nav">
+        <div class="nav-brand">
+            <div class="brand-cube"></div>
+            <div class="brand-text">SINTÉTICA<span>.IA</span></div>
         </div>
-        <div class="academic-badge">Pesquisa Avançada • Inteligência Artificial & Sociedade • Nível V</div>
-    </header>
-
-    <!-- SISTEMA DE PASTAS MODULAR -->
-    <main class="folder-system">
-        
-        <!-- Abas Estilo Pastas de Arquivos Físicos -->
-        <div class="folder-tabs">
-            <button class="tab-link active" data-tab="visao">
-                <span class="tab-folder-icon">📁</span> 01. Visão Geral
-            </button>
-            <button class="tab-link" data-tab="socio">
-                <span class="tab-folder-icon">📁</span> 02. Vetores de Impacto
-            </button>
-            <button class="tab-link" data-tab="arquitetura">
-                <span class="tab-folder-icon">📁</span> 03. Engenharia de Redes
-            </button>
-            <button class="tab-link" data-tab="regulacao">
-                <span class="tab-folder-icon">📁</span> 04. Marcos Regulatórios
-            </button>
-            <button class="tab-link" data-tab="simulador">
-                <span class="tab-folder-icon">⚡</span> 05. Matriz de Avaliação
-            </button>
+        <div class="nav-links">
+            <button class="nav-item active" data-tab="dashboard">Dashboard</button>
+            <button class="nav-item" data-tab="threats">Vetores de Ameaça</button>
+            <button class="nav-item" data-tab="architecture">Engenharia GAN</button>
+            <button class="nav-item" data-tab="governance">Governança</button>
+            <button class="nav-item-cta" data-tab="matrix">Rodar Matriz Interativa</button>
         </div>
+    </nav>
 
-        <!-- CONTEÚDO EXPANDIDO DAS PASTAS -->
-        <div class="folder-content">
+    <!-- MAIN CONTAINER (SPA APPLICATION) -->
+    <main class="app-container">
 
-            <!-- PASTA 1: VISÃO GERAL -->
-            <div id="tab-visao" class="tab-panel active">
-                <div class="panel-header">
-                    <h2>Mídias Sintéticas e a Desestruturação Factual</h2>
-                    <p class="panel-subtitle">A epistemologia da verdade na era do Deep Learning corporativo.</p>
+        <!-- TAB 1: EXECUTIVE DASHBOARD -->
+        <section id="tab-dashboard" class="tab-panel active">
+            <div class="hero-split">
+                <div class="hero-text-block">
+                    <div class="academic-tag">🔥 NODE PROFISSIONAL // INVESTIGAÇÃO ACADÊMICA</div>
+                    <h1>A Desconstrução da Verdade Factual via <span>Deepfakes</span></h1>
+                    <p class="hero-lead">Uma imersão analítica sobre a erosão epistêmica, engenharia social automatizada e a arquitetura matemática que desafia a soberania da informação humana.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-glow" onclick="switchTab('threats')">Explorar Pesquisa</button>
+                        <button class="btn-outline" onclick="switchTab('matrix')">Iniciar Teste de Imunidade</button>
+                    </div>
                 </div>
-                <div class="intro-box">
-                    <p>A democratização de modelos generativos avançados rompeu com o paradigma histórico de que mídias gravadas servem como registro empírico de eventos reais. Este ecossistema digital examina, sob a ótica da governança computacional, como a sofisticação das ferramentas de síntese audiovisual desafia a soberania informacional, a estabilidade das instituições democráticas e os limites da responsabilidade civil dos provedores de aplicação.</p>
-                    <div class="action-row">
-                        <button class="btn-primary" onclick="openTab('socio')">Acessar Vetores de Impacto</button>
+                
+                <!-- Dynamic Data Counter Blocks -->
+                <div class="hero-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="900">0%</div>
+                        <div class="stat-label">Aumento em ferramentas generativas acessíveis no mercado corporativo.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-target="48">0h</div>
+                        <div class="stat-label">Tempo crítico necessário para uma narrativa sintética desestabilizar canais sociais.</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- PASTA 2: VETORES DE IMPACTO -->
-            <div id="tab-socio" class="tab-panel">
-                <div class="panel-header">
-                    <h2>Implicações Sociopolíticas e Engenharia Social</h2>
-                    <p class="panel-subtitle">Análise sistemática dos danos e desestabilização provocados por IA generativa.</p>
+        <!-- TAB 2: THREAT VECTORS -->
+        <section id="tab-threats" class="tab-panel">
+            <div class="section-header">
+                <span class="section-num">01 //</span>
+                <h2>Vetores Macrossociais de Impacto</h2>
+                <p>Como a manipulação biométrica algorítmica redefine as interações geopolíticas e institucionais.</p>
+            </div>
+            <div class="card-deck">
+                <div class="glass-card">
+                    <div class="card-accent-line"></div>
+                    <span class="card-index">VECTOR_01</span>
+                    <h3>Saturação e Apatias Epistêmicas</h3>
+                    <p>A dispersão em massa de deepfakes hiper-realistas altera o tecido informacional. O objetivo dos ataques modernos não é meramente fazer o público acreditar em um evento forjado, mas fragmentar a confiança pública a ponto de gerar ceticismo paralisante e apatia social.</p>
                 </div>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="card-num">SEC // 01</div>
-                        <h3>Erosão Epistêmica Baseada em Algoritmos</h3>
-                        <p>O fluxo de deepfakes hiper-realistas distribuído por redes de desinformação não busca apenas convencer o receptor de uma mentira específica, mas sim saturar o ecossistema de dados a ponto de gerar a apatia informacional. O cidadão perde a capacidade de discernir dados autênticos, delegando sua validação a bolhas ideológicas polarizadas.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="card-num">SEC // 02</div>
-                        <h3>Chantagem Sintética Dinâmica</h3>
-                        <p>Ataques direcionados coletam assinaturas biométricas e dados faciais de mídias expostas publicamente. Através de processos automatizados de transferência de traços faciais (Face Swapping), agentes maliciosos forjam evidências criminosas ou comprometedoras, viabilizando esquemas sofisticados de extorsão e fraudes financeiras corporativas.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="card-num">SEC // 03</div>
-                        <h3>A Negação Plausível Estrutural</h3>
-                        <p>A existência consolidada da fraude por inteligência artificial gera um fenômeno conhecido na literatura como "o dividendo do mentiroso". Figuras públicas envolvidas em flagrantes de corrupção ou crimes documentados por gravações legítimas utilizam a existência da tecnologia para alegar que mídias reais são manipulações sintéticas, evadindo a responsabilização legal.</p>
-                    </div>
+                <div class="glass-card">
+                    <div class="card-accent-line"></div>
+                    <span class="card-index">VECTOR_02</span>
+                    <h3>Extorsão Biométrica Dinâmica</h3>
+                    <p>A raspagem de dados faciais e assinaturas de voz em redes de perfis públicos alimenta sistemas automatizados de transferência de identidade (*Face Swapping*). Isso possibilita crimes direcionados de engenharia social, fraudes corporativas complexas e coação em tempo real.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-accent-line"></div>
+                    <span class="card-index">VECTOR_03</span>
+                    <h3>O Dividendo do Mentiroso</h3>
+                    <p>Um efeito colateral perverso na esfera jurídica: com a validação pública de que qualquer mídia em vídeo ou áudio pode ser gerada por IA, figuras públicas corruptas utilizam a existência da tecnologia para rejeitar provas reais de crimes legítimos, minando instâncias de responsabilização legal.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- PASTA 3: ENGENHARIA DE REDES -->
-            <div id="tab-arquitetura" class="tab-panel">
-                <div class="panel-header">
-                    <h2>Mecanismos Computacionais das Arquiteturas Generativas</h2>
-                    <p class="panel-subtitle">A matemática por trás do realismo artificial.</p>
-                </div>
-                <div class="tech-layout">
-                    <div class="tech-summary">
-                        <h3>O Embate de Teoria dos Jogos nas GANs</h3>
-                        <p>As mídias geradas por IA utilizam Redes Adversárias Generativas (GANs) e Modelos de Difusão Latente. O processo opera por meio de otimização contínua baseada em uma função de perda de soma zero:</p>
-                    </div>
-                    <div class="gan-subgrid">
-                        <div class="gan-box red-glow">
+        <!-- TAB 3: GAN ARCHITECTURE -->
+        <section id="tab-architecture" class="tab-panel">
+            <div class="section-header">
+                <span class="section-num">02 //</span>
+                <h2>Engenharia Generativa Adversária</h2>
+                <p>A matemática e a teoria dos jogos por trás do hiper-realismo computacional.</p>
+            </div>
+            <div class="tech-grid-split">
+                <div class="tech-narrative-card">
+                    <h3>O Equilíbrio de Soma Zero das GANs</h3>
+                    <p>A excelência visual das mídias sintéticas não decorre de um editor estático, mas sim do embate computacional contínuo entre duas arquiteturas de redes neurais profundas concorrentes:</p>
+                    <div class="interactive-flow-container">
+                        <div class="flow-component component-generator">
                             <h4>Rede Geradora (G)</h4>
-                            <p>Mapeia vetores de ruído de um espaço latente para gerar mídias artificiais. Ela calibra gradientes de erro continuamente para ajustar características como iluminação global, oclusão ambiental e microtexturas com o objetivo de minimizar a taxa de detecção do validador.</p>
+                            <p>Interpreta vetores de ruído em um espaço latente hiperdimensional. Tenta sintetizar distribuições de pixels idênticas às reais para enganar o algoritmo validador.</p>
                         </div>
-                        <div class="gan-box green-glow">
+                        <div class="flow-component component-discriminator">
                             <h4>Rede Discriminadora (D)</h4>
-                            <p>Um classificador probabilístico treinado com amostras reais da população de dados. Ela analisa os outputs da Rede Geradora e calcula a perda matemática do sistema, aplicando retropropagação (backpropagation) para refinar a precisão computacional global.</p>
+                            <p>Um classificador probabilístico supervisionado. Analisa de forma comparativa os dados reais versus os sintéticos artificiais, enviando gradientes de erro de volta para punir e ajustar o gerador.</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- PASTA 4: MARCOS REGULATÓRIOS -->
-            <div id="tab-regulacao" class="tab-panel">
-                <div class="panel-header">
-                    <h2>Governança, Legislação e Resposta Institucional</h2>
-                    <p class="panel-subtitle">Desafios regulatórios internacionais e soberania tecnológica.</p>
+        <!-- TAB 4: GOVERNANCE -->
+        <section id="tab-governance" class="tab-panel">
+            <div class="section-header">
+                <span class="section-num">03 //</span>
+                <h2>Estruturas de Governança Digital</h2>
+                <p>Marcos jurídicos globais, criptografia e os limites de regulação das plataformas de aplicação.</p>
+            </div>
+            <div class="dual-column-layout">
+                <div class="glass-card full-width-card">
+                    <span class="card-index">REG_MODE_01</span>
+                    <h3>O Regulamento de IA da União Europeia (AI Act)</h3>
+                    <p>O primeiro framework legal transnacional a categorizar modelos generativos por faixas de risco sistêmico. Obriga os desenvolvedores de mídias geradas artificialmente a embutir assinaturas criptográficas invisíveis (*watermarking*) sob severas multas de conformidade.</p>
                 </div>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <div class="card-num">LAW // 01</div>
-                        <h3>O AI Act da União Europeia</h3>
-                        <p>O marco legal estabelece classificações severas baseadas em faixas de risco. Modelos generativos que produzem deepfakes são submetidos a obrigações estritas de transparência, exigindo a rotulagem criptográfica invisível (Watermarking) e a discriminação explícita de conteúdos gerados de forma sintética.</p>
+                <div class="glass-card full-width-card">
+                    <span class="card-index">REG_MODE_02</span>
+                    <h3>Responsabilização Civil e Filtragem Proativa</h3>
+                    <p>O centro das discussões de direito digital estuda o fim da imunidade automática das Big Techs. Novas diretrizes forçam plataformas a agir com diligência interna imediata ao detectar distribuições de mídias sintéticas difamatórias que violem direitos de privacidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: QUIZ MATRIX -->
+        <section id="tab-matrix" class="tab-panel">
+            <div class="matrix-layout">
+                <div class="matrix-control-sidebar">
+                    <h3>Matriz de Imunidade</h3>
+                    <p>Selecione um nível de avaliação técnica para carregar as rotinas forenses no terminal digital.</p>
+                    <div class="matrix-level-menu">
+                        <button class="matrix-lvl-btn active" id="btn-lvl-easy">Nível I: Vetores Comportamentais</button>
+                        <button class="matrix-lvl-btn" id="btn-lvl-medium">Nível II: Dinâmicas de Redes Neurais</button>
+                        <button class="matrix-lvl-btn" id="btn-lvl-hard">Nível III: Protocolos Forenses</button>
                     </div>
-                    <div class="info-card">
-                        <div class="card-num">LAW // 02</div>
-                        <h3>Responsabilização Civil de Plataformas</h3>
-                        <p>O debate jurídico central gira em torno da revisão da imunidade civil dos provedores de hospedagem. O avanço regulatório exige que as redes sociais atuem com diligência interna imediata ao serem notificadas sobre mídias sintéticas difamatórias que ameacem a ordem pública ou a integridade de terceiros.</p>
+                </div>
+                <div class="matrix-terminal-display">
+                    <div id="quiz-mount-point">
+                        <!-- Renderizado via JavaScript de Alto Desempenho -->
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- PASTA 5: MATRIZ DE AVALIAÇÃO (QUIZ) -->
-            <div id="tab-simulador" class="tab-panel">
-                <div class="quiz-wrapper">
-                    <div class="quiz-sidebar">
-                        <h3>Matriz Crítica</h3>
-                        <p>Selecione o nível de avaliação técnica para rodar os testes criptográficos e forenses.</p>
-                        <div class="quiz-selector-list">
-                            <button class="lvl-selector active" id="sel-easy">Nível I: Fundamentos Éticos</button>
-                            <button class="lvl-selector" id="sel-medium">Nível II: Modelagem de Redes</button>
-                            <button class="lvl-selector" id="sel-hard">Nível III: Metodologia Forense</button>
-                        </div>
-                    </div>
-                    <div class="quiz-main-frame">
-                        <div id="quiz-dynamic-root">
-                            <!-- Processado via script.js -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </main>
 
-    <footer>
-        <p>Desenvolvido sob Diretrizes Acadêmicas Rigorosas • Arquitetura de Interface Computacional Premium</p>
+    <!-- Professional Academic Footer -->
+    <footer class="app-footer">
+        <div class="footer-line"></div>
+        <p>© 2026 Plataforma de Pesquisa Avançada SINTÉTICA.IA • Todos os direitos reservados para fins de validação acadêmica institucional.</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
