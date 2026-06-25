@@ -3,148 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuro Premium - Conectar</title>
+    <title>Universo Neon - O Quiz do Seu Futuro</title>
     
     <style>
-        /* Variáveis de design para alta performance visual */
+        /* 🎨 IDENTIDADE VISUAL PREMUM (PRETO E ROXO NEON) */
         :root {
-          --bg-deep-space: #0b0a12; 
-          --bg-card-dark: #161426;  
-          --neon-purple: #9d4edd;   
-          --neon-glow: #bd93f9;     
-          --text-pure: #f8f9fa;     
-          --text-muted: #9a9fac;    
-          --error-color: #ff5555;
+          --bg-dark: #08070d;       /* Preto profundo de fundo */
+          --bg-card: #141226;       /* Roxo escuro para os blocos */
+          --purple-neon: #9d4edd;   /* Roxo vibrante */
+          --purple-glow: #bd93f9;   /* Roxo claro para destaques */
+          --text-main: #f8f9fa;     /* Branco para leitura */
+          --text-muted: #9a9fac;    /* Cinza sutil */
+          --success: #00f5d4;       /* Verde neon para acertos */
         }
 
-        /* Configuração base da tela */
         body {
           margin: 0;
-          padding: 0;
+          padding: 20px;
           box-sizing: border-box;
           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          background-color: var(--bg-deep-space);
-          color: var(--text-pure);
+          background-color: var(--bg-dark);
+          color: var(--text-main);
           display: flex;
-          justify-content: center;
+          flex-direction: column;
           align-items: center;
+          justify-content: center;
           min-height: 100vh;
         }
 
-        /* Container do formulário */
-        .card-premium {
-          background: var(--bg-card-dark);
+        /* CONTAINER PRINCIPAL DO SITE */
+        .container {
+          background: var(--bg-card);
           padding: 40px;
-          border-radius: 20px;
-          border: 1px solid rgba(157, 78, 221, 0.2);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
-                      0 0 50px rgba(157, 78, 221, 0.08);
-          max-width: 400px;
-          width: 90%;
-        }
-
-        .card-header {
-          text-align: center;
-          margin-bottom: 32px;
-        }
-
-        .card-header h1 {
-          font-size: 28px;
-          font-weight: 700;
-          margin: 0 0 8px 0;
-          letter-spacing: -0.5px;
-        }
-
-        .card-header p {
-          color: var(--text-muted);
-          font-size: 14px;
-          margin: 0;
-        }
-
-        /* Grupos de entrada de dados */
-        .input-group {
-          margin-bottom: 20px;
-          position: relative;
-        }
-
-        .input-group label {
-          display: block;
-          font-size: 13px;
-          font-weight: 600;
-          color: var(--text-muted);
-          margin-bottom: 8px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
-        .input-group input {
+          border-radius: 24px;
+          border: 1px solid rgba(157, 78, 221, 0.25);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
+                      0 0 60px rgba(157, 78, 221, 0.08);
+          max-width: 500px;
           width: 100%;
-          padding: 14px 16px;
+          text-align: center;
+          backdrop-filter: blur(12px);
+        }
+
+        header h1 {
+          font-size: 32px;
+          font-weight: 800;
+          margin: 0 0 10px 0;
+          letter-spacing: -0.5px;
+          background: linear-gradient(135deg, #fff, var(--purple-glow));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+          color: var(--text-muted);
           font-size: 15px;
-          background-color: rgba(11, 10, 18, 0.5);
-          border: 1px solid rgba(157, 78, 221, 0.3);
-          border-radius: 8px;
-          color: var(--text-pure);
-          box-sizing: border-box;
-          transition: all 0.3s ease;
+          line-height: 1.6;
+          margin-bottom: 35px;
         }
 
-        /* Foco nos campos com efeito neon */
-        .input-group input:focus {
-          outline: none;
-          border-color: var(--neon-glow);
-          box-shadow: 0 0 12px rgba(189, 147, 249, 0.3);
-          background-color: rgba(11, 10, 18, 0.8);
+        /* ÁREA DO QUIZ */
+        .quiz-box {
+          text-align: left;
         }
 
-        /* Mensagem de erro */
-        .error-message {
-          color: var(--error-color);
-          font-size: 12px;
-          margin-top: 6px;
-          display: none;
+        .question-text {
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          line-height: 1.4;
         }
 
-        /* Botão principal */
-        .btn-neon {
-          background: var(--neon-purple);
-          color: var(--text-pure);
+        /* OPÇÕES DE RESPOSTA */
+        .options-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 30px;
+        }
+
+        .option-btn {
+          background: rgba(8, 7, 13, 0.6);
+          color: var(--text-main);
+          border: 1px solid rgba(157, 78, 221, 0.2);
+          padding: 16px 20px;
+          font-size: 15px;
+          font-weight: 500;
+          border-radius: 12px;
+          cursor: pointer;
+          text-align: left;
+          transition: all 0.25s ease;
+        }
+
+        .option-btn:hover {
+          border-color: var(--purple-glow);
+          background: rgba(157, 78, 221, 0.1);
+          transform: translateX(4px);
+        }
+
+        /* Estado Selecionado */
+        .option-btn.selected {
+          border-color: var(--purple-neon);
+          background: var(--purple-neon);
+          box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+        }
+
+        /* BOTÃO AVANÇAR */
+        .action-btn {
+          background: var(--purple-neon);
+          color: var(--text-main);
           border: none;
           padding: 16px;
           font-size: 16px;
           font-weight: 600;
-          border-radius: 10px;
+          border-radius: 12px;
           cursor: pointer;
           width: 100%;
-          margin-top: 10px;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-          box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
         }
 
-        .btn-neon:hover {
-          background: var(--neon-glow);
-          box-shadow: 0 0 25px rgba(189, 147, 249, 0.7);
-          transform: translateY(-2px);
+        .action-btn:hover {
+          background: var(--purple-glow);
+          box-shadow: 0 0 25px rgba(189, 147, 249, 0.5);
         }
 
-        .btn-neon:active {
-          transform: translateY(1px);
+        .action-btn:disabled {
+          background: #2b283d;
+          color: var(--text-muted);
+          box-shadow: none;
+          cursor: not-allowed;
         }
 
-        /* Feedback de Sucesso */
-        .success-screen {
+        /* TELA DE RESULTADOS */
+        .results-screen {
           display: none;
-          text-align: center;
-          animation: fadeIn 0.5s ease forwards;
+          animation: scaleUp 0.4s ease forwards;
         }
 
-        .success-screen h2 {
-          font-size: 26px;
-          color: var(--neon-glow);
-          margin-bottom: 12px;
+        .score-badge {
+          font-size: 48px;
+          font-weight: 800;
+          color: var(--success);
+          margin: 20px 0;
+          text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
         }
 
-        @keyframes fadeIn {
+        @keyframes scaleUp {
           from { opacity: 0; transform: scale(0.95); }
           to { opacity: 1; transform: scale(1); }
         }
@@ -152,86 +157,133 @@
 </head>
 <body>
 
-    <main>
-        <article class="card-premium">
-            <!-- Formulário de Acesso -->
-            <form id="loginForm" novalidate>
-                <div class="card-header">
-                    <h1>Acessar Sistema</h1>
-                    <p>Insira suas credenciais para continuar</p>
+    <main class="container">
+        <!-- Tela de Perguntas -->
+        <div id="quiz-window">
+            <header>
+                <h1>Desafio do Futuro</h1>
+                <p>Responda às questões com sabedoria para medir sua prontidão tecnológica.</p>
+            </header>
+
+            <section class="quiz-box">
+                <div class="question-text" id="question-title">Carregando pergunta...</div>
+                
+                <div class="options-list" id="options-container">
+                    <!-- Gerado via Javascript -->
                 </div>
 
-                <div class="input-group">
-                    <label for="email">E-mail Corporativo</label>
-                    <input type="email" id="email" placeholder="seu@email.com" required>
-                    <div class="error-message" id="emailError">Por favor, insira um e-mail válido.</div>
-                </div>
+                <button class="action-btn" id="next-btn" disabled>Avançar Questão</button>
+            </section>
+        </div>
 
-                <div class="input-group">
-                    <label for="password">Senha de Acesso</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
-                    <div class="error-message" id="passwordError">A senha deve ter pelo menos 6 caracteres.</div>
-                </div>
-
-                <button class="btn-neon" type="submit">
-                    Autenticar Entrada
-                </button>
-            </form>
-
-            <!-- Tela que aparece após o sucesso de verdade -->
-            <div id="successView" class="success-screen">
-                <h2>Jornada Iniciada! 🚀</h2>
-                <p>Credenciais validadas com sucesso. Redirecionando para o seu painel de controle...</p>
-            </div>
-        </article>
+        <!-- Tela Final de Pontuação -->
+        <div id="results-window" class="results-screen">
+            <h1>Quiz Concluído! 🚀</h1>
+            <p>Seu desempenho foi calculado com sucesso no sistema.</p>
+            <div class="score-badge" id="score-text">0/0</div>
+            <p id="feedback-text">Analisando resultados...</p>
+            <button class="action-btn" onclick="location.reload()" style="margin-top: 20px;">Refazer Desafio</button>
+        </div>
     </main>
 
+    <!-- ⚡ LOGICA DO QUIZ EM JAVASCRIPT -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('loginForm');
-            const successView = document.getElementById('successView');
-            const emailInput = document.getElementById('email');
-            const passwordInput = document.getElementById('password');
+        // Banco de dados de perguntas do Quiz
+        const quizData = [
+            {
+                question: "Qual das alternativas representa a melhor prática para vincular códigos em um site de alta performance?",
+                options: [
+                    "Colocar tudo espalhado sem ordem", 
+                    "Usar arquivos integrados ou caminhos perfeitamente validados", 
+                    "Não usar JavaScript no navegador", 
+                    "Deixar telas brancas propositalmente"
+                ],
+                correct: 1
+            },
+            {
+                question: "O que o termo 'Modo Escuro' (Dark Mode) prioriza além da estética bonita?",
+                options: [
+                    "Gasto excessivo de energia", 
+                    "Dificuldade de leitura no escuro", 
+                    "Conforto visual do usuário e economia de bateria", 
+                    "Apenas carregar imagens mais rápido"
+                ],
+                correct: 2
+            },
+            {
+                question: "Qual elemento traz a interatividade em tempo real para as páginas da Web?",
+                options: [
+                    "Apenas o arquivo HTML puro", 
+                    "O banco de dados SQL isolado", 
+                    "Imagens estáticas de fundo", 
+                    "O motor JavaScript rodando no navegador"
+                ],
+                correct: 3
+            }
+        ];
 
-            if (!form) return;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOptionIndex = null;
 
-            form.addEventListener('submit', (e) => {
-                e.preventDefault(); // Impede o recarregamento incorreto da página
+        const questionTitle = document.getElementById('question-title');
+        const optionsContainer = document.getElementById('options-container');
+        const nextButton = document.getElementById('next-btn');
+        const quizWindow = document.getElementById('quiz-window');
+        const resultsWindow = document.getElementById('results-window');
+        const scoreText = document.getElementById('score-text');
+        const feedbackText = document.getElementById('feedback-text');
+
+        function loadQuestion() {
+            // Limpa seleções anteriores
+            selectedOptionIndex = null;
+            nextButton.disabled = true;
+            nextButton.textContent = currentQuestionIndex === quizData.length - 1 ? "Finalizar Quiz" : "Avançar Questão";
+            optionsContainer.innerHTML = '';
+
+            const currentData = quizData[currentQuestionIndex];
+            questionTitle.textContent = `${currentQuestionIndex + 1}. ${currentData.question}`;
+
+            // Renderiza as alternativas bonitas
+            currentData.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option-btn');
+                button.textContent = option;
+                button.type = 'button';
                 
-                let isValid = true;
+                button.addEventListener('click', () => {
+                    // Remove seleção dos outros botões
+                    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+                    // Seleciona o atual
+                    button.classList.add('selected');
+                    selectedOptionIndex = index;
+                    nextButton.disabled = false;
+                });
 
-                // Validação simples de E-mail
-                if (!emailInput.value.includes('@') || emailInput.value.length < 5) {
-                    document.getElementById('emailError').style.display = 'block';
-                    emailInput.style.borderColor = 'var(--error-color)';
-                    isValid = false;
-                } else {
-                    document.getElementById('emailError').style.display = 'none';
-                    emailInput.style.borderColor = 'rgba(157, 78, 221, 0.3)';
-                }
-
-                // Validação simples de Senha
-                if (passwordInput.value.length < 6) {
-                    document.getElementById('passwordError').style.display = 'block';
-                    passwordInput.style.borderColor = 'var(--error-color)';
-                    isValid = false;
-                } else {
-                    document.getElementById('passwordError').style.display = 'none';
-                    passwordInput.style.borderColor = 'rgba(157, 78, 221, 0.3)';
-                }
-
-                // Se os dados forem válidos, faz a transição de tela profissional
-                if (isValid) {
-                    form.style.display = 'none';
-                    successView.style.display = 'block';
-                    
-                    // Aqui simulamos uma resposta do servidor após 2 segundos
-                    setTimeout(() => {
-                        alert('Aqui você pode direcionar o usuário para a sua próxima página ou sistema!');
-                    }, 2000);
-                }
+                optionsContainer.appendChild(button);
             });
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (selectedOptionIndex === null) return;
+
+            // Valida se acertou
+            if (selectedOptionIndex === quizData[currentQuestionIndex].correct) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
         });
-    </script>
-</body>
-</html>
+
+        function showResults() {
+            quizWindow.style.display = 'none';
+            resultsWindow.style.display = 'block';
+            scoreText.textContent = `${score} / ${quizData.length}`;
+            
+            if (score === quizData.length) {
