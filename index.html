@@ -1,168 +1,88 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sintética: Inteligência Artificial, Deepfakes e Sociedade</title>
-    <!-- Google Fonts: Inter and Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Confetti Library for Master Score -->
-    <script src="https://jsdelivr.net"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Variáveis de design para consistência visual */
+:root {
+  --bg-deep-space: #0b0a12; /* Preto espacial profundo */
+  --bg-card-dark: #161426;  /* Roxo escuro para contraste */
+  --neon-purple: #9d4edd;   /* Roxo principal vibrante */
+  --neon-glow: #bd93f9;     /* Roxo claro para brilho e hover */
+  --text-pure: #f8f9fa;     /* Branco puro para leitura perfeita */
+  --text-muted: #9a9fac;    /* Cinza azulado para textos secundários */
+}
 
-    <!-- Cinematic Background Glow Elements -->
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
+/* Reset de layout e centralização absoluta */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-deep-space);
+  color: var(--text-pure);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-    <!-- Premium Navigation Bar -->
-    <nav class="glass-nav">
-        <div class="nav-brand">
-            <div class="brand-cube"></div>
-            <div class="brand-text">SINTÉTICA<span>.IA</span></div>
-        </div>
-        <div class="nav-links">
-            <button class="nav-item active" data-tab="dashboard">Dashboard</button>
-            <button class="nav-item" data-tab="threats">Vetores de Ameaça</button>
-            <button class="nav-item" data-tab="architecture">Engenharia GAN</button>
-            <button class="nav-item" data-tab="governance">Governança</button>
-            <button class="nav-item-cta" data-tab="matrix">Rodar Matriz Interativa</button>
-        </div>
-    </nav>
+/* Cartão com efeito de profundidade e borda sutil */
+.card-premium {
+  background: var(--bg-card-dark);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(157, 78, 221, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+              0 0 50px rgba(157, 78, 221, 0.05);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  backdrop-filter: blur(10px);
+}
 
-    <!-- MAIN CONTAINER (SPA APPLICATION) -->
-    <main class="app-container">
+/* Títulos marcantes */
+.card-premium h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
 
-        <!-- TAB 1: EXECUTIVE DASHBOARD -->
-        <section id="tab-dashboard" class="tab-panel active">
-            <div class="hero-split">
-                <div class="hero-text-block">
-                    <div class="academic-tag">🔥 NODE PROFISSIONAL // INVESTIGAÇÃO ACADÊMICA</div>
-                    <h1>A Desconstrução da Verdade Factual via <span>Deepfakes</span></h1>
-                    <p class="hero-lead">Uma imersão analítica sobre a erosão epistêmica, engenharia social automatizada e a arquitetura matemática que desafia a soberania da informação humana.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-glow" onclick="switchTab('threats')">Explorar Pesquisa</button>
-                        <button class="btn-outline" onclick="switchTab('matrix')">Iniciar Teste de Imunidade</button>
-                    </div>
-                </div>
-                
-                <!-- Dynamic Data Counter Blocks -->
-                <div class="hero-stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value" data-target="900">0%</div>
-                        <div class="stat-label">Aumento em ferramentas generativas acessíveis no mercado corporativo.</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" data-target="48">0h</div>
-                        <div class="stat-label">Tempo crítico necessário para uma narrativa sintética desestabilizar canais sociais.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.card-premium p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
 
-        <!-- TAB 2: THREAT VECTORS -->
-        <section id="tab-threats" class="tab-panel">
-            <div class="section-header">
-                <span class="section-num">01 //</span>
-                <h2>Vetores Macrossociais de Impacto</h2>
-                <p>Como a manipulação biométrica algorítmica redefine as interações geopolíticas e institucionais.</p>
-            </div>
-            <div class="card-deck">
-                <div class="glass-card">
-                    <div class="card-accent-line"></div>
-                    <span class="card-index">VECTOR_01</span>
-                    <h3>Saturação e Apatias Epistêmicas</h3>
-                    <p>A dispersão em massa de deepfakes hiper-realistas altera o tecido informacional. O objetivo dos ataques modernos não é meramente fazer o público acreditar em um evento forjado, mas fragmentar a confiança pública a ponto de gerar ceticismo paralisante e apatia social.</p>
-                </div>
-                <div class="glass-card">
-                    <div class="card-accent-line"></div>
-                    <span class="card-index">VECTOR_02</span>
-                    <h3>Extorsão Biométrica Dinâmica</h3>
-                    <p>A raspagem de dados faciais e assinaturas de voz em redes de perfis públicos alimenta sistemas automatizados de transferência de identidade (*Face Swapping*). Isso possibilita crimes direcionados de engenharia social, fraudes corporativas complexas e coação em tempo real.</p>
-                </div>
-                <div class="glass-card">
-                    <div class="card-accent-line"></div>
-                    <span class="card-index">VECTOR_03</span>
-                    <h3>O Dividendo do Mentiroso</h3>
-                    <p>Um efeito colateral perverso na esfera jurídica: com a validação pública de que qualquer mídia em vídeo ou áudio pode ser gerada por IA, figuras públicas corruptas utilizam a existência da tecnologia para rejeitar provas reais de crimes legítimos, minando instâncias de responsabilização legal.</p>
-                </div>
-            </div>
-        </section>
+/* Botão de alta conversão com efeito Glow (Brilho) */
+.btn-neon {
+  background: var(--neon-purple);
+  color: var(--text-pure);
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+}
 
-        <!-- TAB 3: GAN ARCHITECTURE -->
-        <section id="tab-architecture" class="tab-panel">
-            <div class="section-header">
-                <span class="section-num">02 //</span>
-                <h2>Engenharia Generativa Adversária</h2>
-                <p>A matemática e a teoria dos jogos por trás do hiper-realismo computacional.</p>
-            </div>
-            <div class="tech-grid-split">
-                <div class="tech-narrative-card">
-                    <h3>O Equilíbrio de Soma Zero das GANs</h3>
-                    <p>A excelência visual das mídias sintéticas não decorre de um editor estático, mas sim do embate computacional contínuo entre duas arquiteturas de redes neurais profundas concorrentes:</p>
-                    <div class="interactive-flow-container">
-                        <div class="flow-component component-generator">
-                            <h4>Rede Geradora (G)</h4>
-                            <p>Interpreta vetores de ruído em um espaço latente hiperdimensional. Tenta sintetizar distribuições de pixels idênticas às reais para enganar o algoritmo validador.</p>
-                        </div>
-                        <div class="flow-component component-discriminator">
-                            <h4>Rede Discriminadora (D)</h4>
-                            <p>Um classificador probabilístico supervisionado. Analisa de forma comparativa os dados reais versus os sintéticos artificiais, enviando gradientes de erro de volta para punir e ajustar o gerador.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Efeitos de estado interativo */
+.btn-neon:hover {
+  background: var(--neon-glow);
+  box-shadow: 0 0 25px rgba(189, 147, 249, 0.6);
+  transform: translateY(-2px);
+}
 
-        <!-- TAB 4: GOVERNANCE -->
-        <section id="tab-governance" class="tab-panel">
-            <div class="section-header">
-                <span class="section-num">03 //</span>
-                <h2>Estruturas de Governança Digital</h2>
-                <p>Marcos jurídicos globais, criptografia e os limites de regulação das plataformas de aplicação.</p>
-            </div>
-            <div class="dual-column-layout">
-                <div class="glass-card full-width-card">
-                    <span class="card-index">REG_MODE_01</span>
-                    <h3>O Regulamento de IA da União Europeia (AI Act)</h3>
-                    <p>O primeiro framework legal transnacional a categorizar modelos generativos por faixas de risco sistêmico. Obriga os desenvolvedores de mídias geradas artificialmente a embutir assinaturas criptográficas invisíveis (*watermarking*) sob severas multas de conformidade.</p>
-                </div>
-                <div class="glass-card full-width-card">
-                    <span class="card-index">REG_MODE_02</span>
-                    <h3>Responsabilização Civil e Filtragem Proativa</h3>
-                    <p>O centro das discussões de direito digital estuda o fim da imunidade automática das Big Techs. Novas diretrizes forçam plataformas a agir com diligência interna imediata ao detectar distribuições de mídias sintéticas difamatórias que violem direitos de privacidade.</p>
-                </div>
-            </div>
-        </section>
+.btn-neon:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(157, 78, 221, 0.4);
+}
 
-        <!-- TAB 5: QUIZ MATRIX -->
-        <section id="tab-matrix" class="tab-panel">
-            <div class="matrix-layout">
-                <div class="matrix-control-sidebar">
-                    <h3>Matriz de Imunidade</h3>
-                    <p>Selecione um nível de avaliação técnica para carregar as rotinas forenses no terminal digital.</p>
-                    <div class="matrix-level-menu">
-                        <button class="matrix-lvl-btn active" id="btn-lvl-easy">Nível I: Vetores Comportamentais</button>
-                        <button class="matrix-lvl-btn" id="btn-lvl-medium">Nível II: Dinâmicas de Redes Neurais</button>
-                        <button class="matrix-lvl-btn" id="btn-lvl-hard">Nível III: Protocolos Forenses</button>
-                    </div>
-                </div>
-                <div class="matrix-terminal-display">
-                    <div id="quiz-mount-point">
-                        <!-- Renderizado via JavaScript de Alto Desempenho -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Professional Academic Footer -->
-    <footer class="app-footer">
-        <div class="footer-line"></div>
-        <p>© 2026 Plataforma de Pesquisa Avançada SINTÉTICA.IA • Todos os direitos reservados para fins de validação acadêmica institucional.</p>
-    </footer>
-
+/* Estado desativado suave */
+.btn-neon:disabled {
+  background: #322f46;
+  color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
